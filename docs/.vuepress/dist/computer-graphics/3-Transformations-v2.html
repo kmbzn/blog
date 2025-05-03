@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>3 - Transformations</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="description" content="Summarizing key concepts from CS lectures.">
+    
+    <link rel="preload" href="/assets/css/0.styles.a5a6618b.css" as="style"><link rel="preload" href="/assets/js/app.1a586d9d.js" as="script"><link rel="preload" href="/assets/js/24.3c2f7e40.js" as="script"><link rel="preload" href="/assets/js/2.c315856f.js" as="script"><link rel="preload" href="/assets/js/1.07f33ce1.js" as="script"><link rel="preload" href="/assets/js/28.253c07b2.js" as="script"><link rel="preload" href="/assets/js/20.4dde745d.js" as="script"><link rel="prefetch" href="/assets/js/10.73ef9888.js"><link rel="prefetch" href="/assets/js/11.15839c60.js"><link rel="prefetch" href="/assets/js/12.5377fab7.js"><link rel="prefetch" href="/assets/js/13.941ca841.js"><link rel="prefetch" href="/assets/js/14.93fda981.js"><link rel="prefetch" href="/assets/js/15.c4a98167.js"><link rel="prefetch" href="/assets/js/16.9daade6c.js"><link rel="prefetch" href="/assets/js/17.563cb716.js"><link rel="prefetch" href="/assets/js/18.ee3df6ff.js"><link rel="prefetch" href="/assets/js/19.34b32096.js"><link rel="prefetch" href="/assets/js/21.2d34e817.js"><link rel="prefetch" href="/assets/js/22.9ee89e7b.js"><link rel="prefetch" href="/assets/js/23.8733a8a9.js"><link rel="prefetch" href="/assets/js/25.baf97143.js"><link rel="prefetch" href="/assets/js/26.73aab62c.js"><link rel="prefetch" href="/assets/js/27.416bda8d.js"><link rel="prefetch" href="/assets/js/29.c56866f6.js"><link rel="prefetch" href="/assets/js/3.c0dfa28d.js"><link rel="prefetch" href="/assets/js/30.35b9fa4f.js"><link rel="prefetch" href="/assets/js/31.67ba72de.js"><link rel="prefetch" href="/assets/js/32.8865ebee.js"><link rel="prefetch" href="/assets/js/33.040d8d8f.js"><link rel="prefetch" href="/assets/js/34.10f264d7.js"><link rel="prefetch" href="/assets/js/4.0149da4e.js"><link rel="prefetch" href="/assets/js/5.c50bed32.js"><link rel="prefetch" href="/assets/js/6.308da3ee.js"><link rel="prefetch" href="/assets/js/7.b9b26fb2.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.663d6e13.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a5a6618b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/images/kmbzn.png" alt="" class="logo"> <!----></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>🖥️ Computer Graphics</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/computer-graphics/1-Course-Intro.html" class="sidebar-link">1-Course-Intro</a></li><li><a href="/computer-graphics/2-Rendering-Basics.html" class="sidebar-link">2-Rendering-Basics</a></li><li><a href="/computer-graphics/3-Transformations-v2.html" aria-current="page" class="active sidebar-link">3-Transformations-v2</a></li><li><a href="/computer-graphics/4-Affine-Space-Frame_Matrix.html" class="sidebar-link">4-Affine-Space-Frame_Matrix</a></li><li><a href="/computer-graphics/5-Vertex-Processing-1.html" class="sidebar-link">5-Vertex-Processing-1</a></li><li><a href="/computer-graphics/6-Vertex-Processing-2.html" class="sidebar-link">6-Vertex-Processing-2</a></li><li><a href="/computer-graphics/7-Hierachical-Modeling-Mesh.html" class="sidebar-link">7-Hierachical-Modeling-Mesh</a></li><li><a href="/computer-graphics/8-Lighting.html" class="sidebar-link">8-Lighting</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_3-transformations"><a href="#_3-transformations" class="header-anchor">#</a> 3 - Transformations</h1> <p>Yoonsang Lee<br>
+Hanyang University<br>
+Spring 2025</p> <h2 id="outline"><a href="#outline" class="header-anchor">#</a> Outline</h2> <ul><li><p>2차원 변환</p> <ul><li>Scaling, Rotation, Shearing, Reflection</li> <li>Translation</li></ul></li> <li><p>변환의 종류</p></li> <li><p>변환의 합성과 Homogeneous Coordinates</p></li> <li><p>두 가지 3차원 직교 좌표계</p></li> <li><p>3차원 Affine 변환</p></li></ul> <h2 id="what-is-transformation"><a href="#what-is-transformation" class="header-anchor">#</a> What is Transformation?</h2> <ul><li><p><strong>Geometric Transformation</strong></p> <ul><li><p>물체의 위치, 방향, 크기 또는 형태를 수학적으로 변경하는 과정<br>
+→ “점들의 집합을 이동시키는 것”</p></li> <li><p>복잡한 장면과 애니메이션 생성을 가능하게 하며, computer graphics에서 필수적임</p></li></ul></li> <li><p>예시:</p> <ul><li>Translation</li> <li>Rotation</li> <li>Scaling</li> <li>Shearing</li></ul></li></ul> <h1 id="_2d-transformations"><a href="#_2d-transformations" class="header-anchor">#</a> 2D Transformations</h1> <h2 id="transformation"><a href="#transformation" class="header-anchor">#</a> Transformation</h2> <ul><li><p>“점들의 집합을 이동시키는 것”</p></li> <li><p>변환 T는 벡터 공간 S에 있는 임의의 입력 벡터 v를 T(v)로 사상함</p> <p>수식 표현:
+S → { T(v) | v ∈ S }</p></li></ul> <p>(사각형이 평행이동되는 그림 예시)</p> <h2 id="linear-transformation"><a href="#linear-transformation" class="header-anchor">#</a> Linear Transformation</h2> <ul><li><p>행렬 곱을 통해 변환을 정의할 수 있음</p> <p>T(v) = Mv</p></li> <li><p>이는 행렬 곱셈이 선형 사상을 나타내므로<br> <strong>linear transformation</strong>이라 부름</p></li> <li><p>linear transformation은 다음 조건을 만족해야 함:</p></li></ul> <p>$$
+T(v_1 + v_2) = T(v_1) + T(v_2)
+$$</p> <p>$$
+T(c \cdot v) = c \cdot T(v)
+$$</p> <ul><li><p>행렬 M 또한 동일한 선형성을 만족:</p> <p>M(v₁ + v₂) = Mv₁ + Mv₂<br>
+M(c * v)   = c * (Mv)</p></li></ul> <h2 id="_2d-linear-transformations"><a href="#_2d-linear-transformations" class="header-anchor">#</a> 2D Linear Transformations</h2> <ul><li><p>2×2 행렬은 다음과 같은 2차원 linear transformation을 표현할 수 있음:</p> <ul><li>uniform scaling</li> <li>non-uniform scaling</li> <li>rotation</li> <li>shearing</li> <li>reflection</li></ul></li></ul> <h2 id="_2d-linear-trans-uniform-scaling"><a href="#_2d-linear-trans-uniform-scaling" class="header-anchor">#</a> 2D Linear Trans. – Uniform Scaling</h2> <ul><li><p>x축과 y축 모두에서 동일한 비율로 확대 또는 축소</p></li> <li><p>수식 예:</p> <p>p = [ x<br>
+y ]</p> <p>S = [ sx   0<br>
+0  sy ]</p> <p>p' = S * p = [ sx * x<br>
+sy * y ]</p></li></ul> <p>(예: sx = sy = 1.5일 때 도형이 1.5배 확대됨)</p> <h2 id="_2d-linear-trans-nonuniform-scaling"><a href="#_2d-linear-trans-nonuniform-scaling" class="header-anchor">#</a> 2D Linear Trans. – Nonuniform Scaling</h2> <ul><li>x축과 y축 방향으로 <strong>서로 다른 비율로</strong> 확대 또는 축소</li></ul> <div class="language- extra-class"><pre class="language-text"><code>S = [ sx   0 ]    p = [ x ]     S * p = [ sx * x ]
+    [ 0   sy ]        [ y ]             [ sy * y ]
+</code></pre></div><p>(예: sx = 1.5, sy = 0.8 → x축 방향은 확대, y축 방향은 축소)</p> <h2 id="_2d-linear-trans-rotation"><a href="#_2d-linear-trans-rotation" class="header-anchor">#</a> 2D Linear Trans. – Rotation</h2> <ul><li><p>회전은 행렬 곱으로 표현 가능하며, 따라서 선형 변환임</p></li> <li><p>양의 각도는 반시계 방향(CCW)을 의미함</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>회전 행렬 Rθ =
+[ cosθ  -sinθ ]  
+[ sinθ   cosθ ]
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>Rθ * [ x ] = [ x * cosθ - y * sinθ ]
+     [ y ]   [ x * sinθ + y * cosθ ]
+</code></pre></div><p>(예: θ = 30도 → 30도 반시계 회전)</p> <h2 id="_2d-linear-trans-rotation-예시-수치-포함"><a href="#_2d-linear-trans-rotation-예시-수치-포함" class="header-anchor">#</a> 2D Linear Trans. – Rotation (예시 수치 포함)</h2> <div class="language- extra-class"><pre class="language-text"><code>R = [ 0.866  -0.5   ]     p = [ x ]     R * p = [ 0.866x - 0.5y ]
+    [ 0.5     0.866 ]         [ y ]             [ 0.5x + 0.866y ]
+</code></pre></div><p>(30도 반시계 회전 시 적용되는 회전 행렬)</p> <h2 id="numbers-in-matrices-scaling-rotation"><a href="#numbers-in-matrices-scaling-rotation" class="header-anchor">#</a> Numbers in Matrices: Scaling, Rotation</h2> <ul><li><p>행렬의 <strong>각 숫자는 어떤 의미를 가질까?</strong></p></li> <li><p>단위 벡터([1, 0]^T, [0, 1]^T)를 기준으로 scaling 또는 rotation 시<br>
+각각의 column vector가 변환된 축의 방향을 나타냄</p></li> <li><p>Canonical basis vectors: 직교 좌표계에서 x, y축 방향 단위 벡터</p></li> <li><p>결과적으로, 변환된 좌표계의 축 방향을 나타냄</p></li></ul> <h2 id="numbers-in-matrices-scaling-rotation-계속"><a href="#numbers-in-matrices-scaling-rotation-계속" class="header-anchor">#</a> Numbers in Matrices: Scaling, Rotation (계속)</h2> <ul><li><p>행렬의 <strong>column vector</strong>는 그 행렬의 column space를 구성하는 <strong>basis vectors</strong></p></li> <li><p>column space: column vector들의 선형 결합으로 표현 가능한 모든 벡터의 집합</p></li></ul> <p>(예시 이미지: rotation과 scaling 시 column vector들이 어떻게 변화하는지 시각화)</p> <h2 id="_2d-linear-trans-reflection"><a href="#_2d-linear-trans-reflection" class="header-anchor">#</a> 2D Linear Trans. – Reflection</h2> <ul><li><p>Reflection은 <strong>non-uniform scaling의 특수한 경우</strong>로 간주 가능</p></li> <li><p>예시: x축 방향 반전</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>[ -1   0 ]   * [ x ]   = [ -x ]
+[  0   1 ]     [ y ]     [  y ]
+</code></pre></div><p>(좌우 반전된 이미지 예시 포함)</p> <h2 id="_2d-linear-trans-shearing"><a href="#_2d-linear-trans-shearing" class="header-anchor">#</a> 2D Linear Trans. – Shearing</h2> <ul><li><p>물체를 <strong>측면으로 밀기(push sideways)</strong></p></li> <li><p>예시: x축 기준으로 y에 비례하여 x 이동</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>[ 1   a ]   * [ x ]   = [ x + a*y ]
+[ 0   1 ]     [ y ]     [   y     ]
+</code></pre></div><p>(예: a = 0.5 → 오른쪽으로 밀린 도형 예시 포함)</p> <h2 id="identity-matrix"><a href="#identity-matrix" class="header-anchor">#</a> Identity Matrix</h2> <ul><li>아무런 변환도 수행하지 않는 행렬 → <strong>&quot;Doing nothing&quot;</strong></li></ul> <div class="language- extra-class"><pre class="language-text"><code>[ 1   0 ]   * [ x ]   = [ x ]
+[ 0   1 ]     [ y ]     [ y ]
+</code></pre></div><p>(도형의 위치, 크기, 방향이 유지됨)</p> <h2 id="demo-2d-linear-transformations"><a href="#demo-2d-linear-transformations" class="header-anchor">#</a> [Demo] 2D Linear Transformations</h2> <ul><li><p>https://www.integral-domain.org/williams/Applets/algebra/linearTransformations.php</p></li> <li><p>행렬 요소의 값을 바꿔보세요</p></li> <li><p>다양한 변환 버튼을 눌러보세요</p></li></ul> <h2 id="quiz-1"><a href="#quiz-1" class="header-anchor">#</a> Quiz 1</h2> <ul><li><p>Go to https://www.slido.com/</p></li> <li><p>Join <code>#cg-ys</code></p></li> <li><p>Click &quot;Polls&quot;</p></li> <li><p>아래 형식으로 정답을 제출하세요:</p> <ul><li>Student ID: Your answer</li> <li>예: 2021123456: 4.0</li></ul></li> <li><p>반드시 위 형식에 맞게 제출해야 출석으로 인정됩니다</p></li></ul> <h2 id="_2d-translation"><a href="#_2d-translation" class="header-anchor">#</a> 2D Translation</h2> <ul><li><p>Translation은 가장 간단한 변환:<br>
+T(v) = v + u</p></li> <li><p>역변환(Inverse):<br>
+T⁻¹(v) = v − u</p></li></ul> <p>(도식: v 벡터에서 u만큼 이동한 결과가 T(v))</p> <h2 id="is-translation-linear-transformation"><a href="#is-translation-linear-transformation" class="header-anchor">#</a> Is translation linear transformation?</h2> <ul><li><p><strong>아니오. 선형 변환(linear transformation)이 아님</strong></p></li> <li><p>선형성(linearity)을 만족하지 않음:<br>
+T(v₁ + v₂) ≠ T(v₁) + T(v₂)<br>
+T(cv) ≠ cT(v)</p> <p>예:<br>
+cT(v) = c(v + b) = cv + cb ≠ T(cv) = cv + b</p></li> <li><p>벡터 덧셈을 사용해 표현 가능:<br>
+T(v) = v + u</p></li> <li><p>선형 변환과 결합할 수 있음:<br>
+T(v) = Mv + u</p></li> <li><p>→ <strong>Affine transformation</strong></p></li></ul> <h2 id="let-s-check-again"><a href="#let-s-check-again" class="header-anchor">#</a> Let’s check again</h2> <ul><li><p><strong>Linear transformation</strong></p> <ul><li>Scaling, Rotation, Reflection, Shearing</li> <li>행렬 곱셈으로 표현 가능<br>
+T(v) = Mv</li></ul></li> <li><p><strong>Translation</strong></p> <ul><li>선형 변환이 아님</li> <li>벡터 덧셈으로 표현됨<br>
+T(v) = v + u</li></ul></li> <li><p><strong>Affine transformation</strong></p> <ul><li>선형 변환과 translation을 결합한 형태<br>
+T(v) = Mv + u</li></ul></li></ul> <h1 id="classes-of-transformations"><a href="#classes-of-transformations" class="header-anchor">#</a> Classes of Transformations</h1> <h2 id="rigid-transformations"><a href="#rigid-transformations" class="header-anchor">#</a> Rigid Transformations</h2> <ul><li><p>모든 점 사이의 거리를 유지함</p> <p>∥g(v) − g(w)∥ = ∥v − w∥<br>
+∀v, w ∈ ℝ² (g: rigid transformation)</p></li> <li><p>&quot;Handedness&quot;를 보존함</p> <ul><li>회전(rotation)의 경우 handedness 보존 조건:<br>
+g(v) = Rv + t, ∀v ∈ ℝ²<br>
+(Reflection은 보존하지 않음)<br>
+(Translation은 방향을 바꾸지 않으므로 영향을 주지 않음)</li></ul></li> <li><p>Rigid transformation의 예:</p> <ul><li>Translation</li> <li>Identity</li> <li>Rotation</li></ul></li> <li><p>일부 문헌에서는 reflection을 rigid로 분류하기도 하나, 본 강의에서는 포함하지 않음</p></li></ul> <h2 id="similarity-transformations"><a href="#similarity-transformations" class="header-anchor">#</a> Similarity Transformations</h2> <ul><li><p>각도를 보존함</p> <ul><li>(rigid transformation도 각도 보존 포함)</li></ul></li> <li><p>Similarity transformation의 예:</p> <ul><li>Translation</li> <li>Identity</li> <li>Rotation</li> <li><strong>Uniform Scaling</strong></li></ul></li> <li><p>일부 문헌에서는 reflection도 포함하나, 본 강의에서는 다루지 않음</p></li></ul> <h2 id="linear-transformations"><a href="#linear-transformations" class="header-anchor">#</a> Linear Transformations</h2> <ul><li><p>원점을 보존함</p></li> <li><p>포함되는 변환들:</p> <ul><li>Translation</li> <li>Identity</li> <li>Rotation</li> <li>Uniform Scaling</li> <li>Scaling</li> <li>Reflection</li> <li>Shearing</li></ul></li></ul> <p>(도식: Linear은 Similarity, Rigid, Affine을 모두 포함하는 개념)</p> <h2 id="affine-transformations"><a href="#affine-transformations" class="header-anchor">#</a> Affine Transformations</h2> <ul><li><p>평행선을 유지함</p></li> <li><p>직선 상의 거리 비율을 유지함</p></li> <li><p>Affine 변환의 포함 관계:</p> <ul><li>Rigid ⊂ Similarity ⊂ Affine ⊂ Linear</li></ul></li></ul> <h2 id="projective-transformations"><a href="#projective-transformations" class="header-anchor">#</a> Projective Transformations</h2> <ul><li><p>직선을 보존함</p></li> <li><p>포함 관계:</p> <ul><li>Rigid ⊂ Similarity ⊂ Affine ⊂ Linear ⊂ Projective</li></ul></li> <li><p>가장 바깥쪽 계층은 Perspective 변환</p></li></ul> <h1 id="composition-of-transformations-homogeneous-coordinates"><a href="#composition-of-transformations-homogeneous-coordinates" class="header-anchor">#</a> Composition of Transformations &amp; Homogeneous Coordinates</h1> <h2 id="composition-of-transformations"><a href="#composition-of-transformations" class="header-anchor">#</a> Composition of Transformations</h2> <ul><li><p>어떤 물체에 T 변환을 적용한 후, S 변환을 추가 적용:</p> <div class="language- extra-class"><pre><code>p → T(p) → S(T(p)) = (S ∘ T)(p)
+</code></pre></div></li> <li><p>2D linear transformation의 합성은<br>
+2×2 행렬 곱셈으로 표현 가능:</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>T(p) = M_T * p  
+S(p) = M_S * p
+
+(S ∘ T)(p) = M_S * M_T * p
+           = (M_S M_T)(p)
+</code></pre></div><h2 id="order-matters"><a href="#order-matters" class="header-anchor">#</a> Order Matters!</h2> <ul><li>행렬 곱셈은 결합법칙은 성립하지만<br>
+교환법칙은 성립하지 않음:</li></ul> <div class="language- extra-class"><pre class="language-text"><code>(AB)C = A(BC)  
+AB ≠ BA
+</code></pre></div><ul><li>따라서, <strong>변환의 적용 순서가 매우 중요함</strong></li></ul> <p>(예: Scale → Rotate vs Rotate → Scale 결과가 다름)</p> <h2 id="demo-composition-of-linear-transformations"><a href="#demo-composition-of-linear-transformations" class="header-anchor">#</a> [Demo] Composition of Linear Transformations</h2> <ul><li><p>https://www.integral-domain.org/williams/Applets/algebra/linearTransformations.php</p></li> <li><p>identity matrix로 초기화 (1 0 0 1 입력)</p></li> <li><p>&quot;Compose Transformations&quot; 버튼 클릭</p></li> <li><p>두 개의 변환을 서로 다른 순서로 적용해보기</p></li></ul> <h2 id="problems-when-handling-translation-as-vector-addition"><a href="#problems-when-handling-translation-as-vector-addition" class="header-anchor">#</a> Problems when handling Translation as Vector Addition</h2> <ul><li><p>선형 변환(회전, 스케일 등)과 translation을<br> <strong>일관된 방식으로 표현할 수 없음</strong></p></li> <li><p>Affine 변환의 합성은 복잡해짐:</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>T(p) = M_T * p + u_T  
+S(p) = M_S * p + u_S
+
+(S ∘ T)(p) = M_S(M_T * p + u_T) + u_S  
+           = (M_S M_T) * p + (M_S * u_T + u_S)
+</code></pre></div><ul><li>우리는 더 깔끔한 표현 방식이 필요함<br>
+→ <strong>Homogeneous coordinates</strong></li></ul> <h2 id="homogeneous-coordinates"><a href="#homogeneous-coordinates" class="header-anchor">#</a> Homogeneous Coordinates</h2> <ul><li><p>핵심 아이디어: 2D 점을 3D 좌표계 상에 표현</p></li> <li><p>벡터에는 추가 성분(w), 행렬에는 추가 행/열을 추가</p> <ul><li>점에는 항상 w = 1</li> <li>2D 점 (x, y)^T → (x, y, 1)^T</li></ul></li> <li><p>2D linear transformation의 표현:</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>[ a  b  0 ]   [ x ]     [ ax + by ]
+[ c  d  0 ] * [ y ]  =  [ cx + dy ]
+[ 0  0  1 ]   [ 1 ]     [   1     ]
+</code></pre></div><h2 id="homogeneous-coordinates-2"><a href="#homogeneous-coordinates-2" class="header-anchor">#</a> Homogeneous Coordinates</h2> <ul><li>2D translation의 표현:</li></ul> <div class="language- extra-class"><pre class="language-text"><code>[ 1  0  t ]   [ x ]     [ x + t ]
+[ 0  1  s ] * [ y ]  =  [ y + s ]
+[ 0  0  1 ]   [ 1 ]     [   1   ]
+</code></pre></div><ul><li>2D affine transformation의 표현:</li></ul> <div class="language- extra-class"><pre class="language-text"><code>[ m11  m12  u1 ]  
+[ m21  m22  u2 ]   ← linear part + translational part
+[  0    0    1 ]
+</code></pre></div><h2 id="homogeneous-coordinates-3"><a href="#homogeneous-coordinates-3" class="header-anchor">#</a> Homogeneous Coordinates</h2> <ul><li>affine transformation 합성은 3×3 행렬 곱셈으로 간단하게 처리 가능:</li></ul> <div class="language- extra-class"><pre class="language-text"><code>T(p) = M_T * p + u_T  
+S(p) = M_S * p + u_S
+</code></pre></div><p>→ block 행렬 표현:</p> <div class="language- extra-class"><pre class="language-text"><code>T(p) = [ M_T  u_T ]   * [ p ]
+       [  0    1  ]     [ 1 ]
+</code></pre></div><h2 id="homogeneous-coordinates-4"><a href="#homogeneous-coordinates-4" class="header-anchor">#</a> Homogeneous Coordinates</h2> <ul><li>affine transformation의 합성은 3×3 행렬 곱셈으로 처리됨</li></ul> <div class="language- extra-class"><pre class="language-text"><code>(S ∘ T)(p) = [ M_S  u_S ] * [ M_T  u_T ] * [ p ]
+             [  0    1  ]   [  0    1  ]   [ 1 ]
+</code></pre></div><p>=&gt;</p> <div class="language- extra-class"><pre class="language-text"><code>      = [ M_S * M_T        M_S * u_T + u_S ] * [ p ]
+        [     0                     1      ]   [ 1 ]
+</code></pre></div><ul><li><p>결과는 이전 방식과 같지만 <strong>훨씬 간단하고 깔끔함</strong></p></li> <li><p>기존 표현과 비교:</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>(S ∘ T)(p) = M_S(M_T * p + u_T) + u_S  
+           = (M_S * M_T) * p + (M_S * u_T + u_S)
+</code></pre></div><h2 id="demo-composition-of-affine-transformations-in-homogeneous-coordinates"><a href="#demo-composition-of-affine-transformations-in-homogeneous-coordinates" class="header-anchor">#</a> [Demo] Composition of Affine Transformations in Homogeneous Coordinates</h2> <ul><li><p>https://observablehq.com/@esperanc/transformations-demo</p></li> <li><p>‘+’ 버튼으로 다양한 순서의 translation 및 linear transformation 추가</p></li> <li><p>슬라이더로 행렬 값의 변화와 도형 변형 확인</p></li> <li><p>주의: 마지막에 추가된 변환이 <strong>가장 먼저 적용</strong>됨</p></li></ul> <h2 id="summary-homogeneous-coordinates-in-2d"><a href="#summary-homogeneous-coordinates-in-2d" class="header-anchor">#</a> Summary: Homogeneous Coordinates in 2D</h2> <ul><li>2D 점에는 (x, y)^T 대신 (x, y, 1)^T 사용</li> <li>2D linear transformation에는 2×2 행렬 대신 <strong>3×3 행렬</strong> 사용</li> <li>2D translation에도 벡터 덧셈 대신 <strong>3×3 행렬</strong> 사용</li></ul> <p>→ linear transformation과 translation을<br> <strong>일관된 방식으로 처리할 수 있음!</strong></p> <h2 id="quiz-2"><a href="#quiz-2" class="header-anchor">#</a> Quiz 2</h2> <ul><li><p>Go to https://www.slido.com/</p></li> <li><p>Join <code>#cg-ys</code></p></li> <li><p>Click &quot;Polls&quot;</p></li> <li><p>아래 형식으로 정답을 제출하세요:</p> <ul><li>Student ID: Your answer</li> <li>예: 2021123456: 4.0</li></ul></li> <li><p>반드시 위 형식에 맞게 제출해야 출석으로 인정됩니다</p></li></ul> <h1 id="two-types-of-3d-cartesian-coordinate-system"><a href="#two-types-of-3d-cartesian-coordinate-system" class="header-anchor">#</a> Two Types of 3D Cartesian Coordinate System</h1> <h2 id="now-let-s-go-to-the-3d-world"><a href="#now-let-s-go-to-the-3d-world" class="header-anchor">#</a> Now, Let’s go to the 3D world!</h2> <ul><li>Coordinate system (좌표계)
+<ul><li>Cartesian coordinate system (직교좌표계)</li></ul></li></ul> <p>(이미지: 2D 좌표계 → z축이 포함된 3D 좌표계로 확장됨)</p> <h2 id="right-handed-and-left-handed-coordinate-systems"><a href="#right-handed-and-left-handed-coordinate-systems" class="header-anchor">#</a> Right-Handed and Left-Handed Coordinate Systems</h2> <ul><li>우리가 사용하는 시스템: <strong>Right-handed Cartesian Coordinates</strong></li></ul> <table><thead><tr><th>항목</th> <th>Right-handed</th> <th>Left-handed</th></tr></thead> <tbody><tr><td>회전 방향</td> <td>축 기준 반시계 방향</td> <td>축 기준 시계 방향</td></tr> <tr><td>사용 예시</td> <td>OpenGL, Maya, Houdini, AutoCAD, Physics &amp; Math</td> <td>DirectX, Unity, Unreal 등</td></tr></tbody></table> <p>(이미지: 오른손 법칙과 왼손 법칙 설명)</p> <h1 id="_3d-affine-transformations"><a href="#_3d-affine-transformations" class="header-anchor">#</a> 3D Affine Transformations</h1> <h2 id="point-representations-in-cartesian-homogeneous-coordinate-system"><a href="#point-representations-in-cartesian-homogeneous-coordinate-system" class="header-anchor">#</a> Point Representations in Cartesian &amp; Homogeneous Coordinate System</h2> <table><thead><tr><th></th> <th>Cartesian coordinate system</th> <th>Homogeneous coordinate system</th></tr></thead> <tbody><tr><td>A 2D point is represented as</td> <td>[ px  py ]^T</td> <td>[ px  py  1 ]^T</td></tr> <tr><td>A 3D point is represented as</td> <td>[ px  py  pz ]^T</td> <td>[ px  py  pz  1 ]^T</td></tr></tbody></table> <h2 id="review-of-linear-transformations-in-2d"><a href="#review-of-linear-transformations-in-2d" class="header-anchor">#</a> Review of Linear Transformations in 2D</h2> <ul><li>2D에서의 선형 변환은 다음과 같은 행렬 곱셈으로 표현됨:</li></ul> <p><strong>Cartesian coordinates:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>[ m11  m12 ]   * [ px ]   = ...
+[ m21  m22 ]     [ py ]
+</code></pre></div><p><strong>Homogeneous coordinates:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>[ m11  m12   0 ]   [ px ]  
+[ m21  m22   0 ] * [ py ]  
+[  0    0    1 ]   [ 1  ]
+</code></pre></div><h2 id="linear-transformations-in-3d"><a href="#linear-transformations-in-3d" class="header-anchor">#</a> Linear Transformations in 3D</h2> <ul><li>3D에서의 선형 변환은 다음 행렬 곱셈으로 표현됨:</li></ul> <p><strong>Cartesian coordinates:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>[ m11  m12  m13 ]   [ px ]  
+[ m21  m22  m23 ] * [ py ]  
+[ m31  m32  m33 ]   [ pz ]
+</code></pre></div><p><strong>Homogeneous coordinates:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>[ m11  m12  m13   0 ]   [ px ]  
+[ m21  m22  m23   0 ] * [ py ]  
+[ m31  m32  m33   0 ]   [ pz ]  
+[  0    0    0    1 ]   [ 1  ]
+</code></pre></div><h2 id="linear-transformations-in-3d-2"><a href="#linear-transformations-in-3d-2" class="header-anchor">#</a> Linear Transformations in 3D</h2> <p><strong>Scaling (크기 조절):</strong></p> <div class="language- extra-class"><pre class="language-text"><code>S_s = [ Sx  0   0 ]         S_s (in 4x4) = [ Sx  0   0   0 ]
+      [ 0  Sy   0 ]                           [ 0  Sy   0   0 ]
+      [ 0   0  Sz ]                           [ 0   0  Sz   0 ]
+                                              [ 0   0   0   1 ]
+</code></pre></div><p><strong>Shear (in x, based on z position):</strong></p> <div class="language- extra-class"><pre class="language-text"><code>H_xz_d = [ 1   0   d1 ]      H_xz_d (in 4x4) = [ 1   0   d1   0 ]
+         [ 0   1   0  ]                          [ 0   1    0   0 ]
+         [ 0   0   1  ]                          [ 0   0    1   0 ]
+                                                [ 0   0    0   1 ]
+</code></pre></div><h2 id="linear-transformations-in-3d-3"><a href="#linear-transformations-in-3d-3" class="header-anchor">#</a> Linear Transformations in 3D</h2> <p><strong>Rotation about x-axis:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>R_x(θ) = [ 1      0         0     ]  
+         [ 0   cosθ   -sinθ ]  
+         [ 0   sinθ    cosθ ]
+</code></pre></div><p><strong>Rotation about y-axis:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>R_y(θ) = [ cosθ   0   sinθ ]  
+         [   0     1     0  ]  
+         [ -sinθ  0   cosθ ]
+</code></pre></div><p><strong>Rotation about z-axis:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>R_z(θ) = [ cosθ  -sinθ   0 ]  
+         [ sinθ   cosθ   0 ]  
+         [   0      0     1 ]
+</code></pre></div><p>(오른손 법칙에 따라 z축을 기준으로 위에서 아래로 보는 시점에서 반시계 방향 회전)</p> <h2 id="review-of-translations-in-2d"><a href="#review-of-translations-in-2d" class="header-anchor">#</a> Review of Translations in 2D</h2> <ul><li>2D에서의 Translation은 다음 두 방식으로 표현 가능:</li></ul> <p><strong>Vector addition (Cartesian coordinates):</strong></p> <div class="language- extra-class"><pre class="language-text"><code>[ px ]   +   [ ux ]  
+[ py ]       [ uy ]
+</code></pre></div><p><strong>Matrix multiplication (homogeneous coordinates):</strong></p> <div class="language- extra-class"><pre class="language-text"><code>[ 1  0  ux ]   [ px ]  
+[ 0  1  uy ] * [ py ]  
+[ 0  0   1 ]   [ 1  ]
+</code></pre></div><h2 id="translations-in-3d"><a href="#translations-in-3d" class="header-anchor">#</a> Translations in 3D</h2> <ul><li>3D에서의 Translation도 유사하게 표현 가능:</li></ul> <p><strong>Vector addition (Cartesian coordinates):</strong></p> <div class="language- extra-class"><pre class="language-text"><code>[ px ]   +   [ ux ]  
+[ py ]       [ uy ]  
+[ pz ]       [ uz ]
+</code></pre></div><p><strong>Matrix multiplication (homogeneous coordinates):</strong></p> <div class="language- extra-class"><pre class="language-text"><code>[ 1  0  0  ux ]   [ px ]  
+[ 0  1  0  uy ] * [ py ]  
+[ 0  0  1  uz ]   [ pz ]  
+[ 0  0  0   1 ]   [ 1  ]
+</code></pre></div><h2 id="review-of-affine-transformations-in-2d"><a href="#review-of-affine-transformations-in-2d" class="header-anchor">#</a> Review of Affine Transformations in 2D</h2> <ul><li>Homogeneous coordinates에서는 2D affine transformation을<br>
+3×3 행렬 곱으로 표현할 수 있음:</li></ul> <div class="language- extra-class"><pre class="language-text"><code>[ m11  m12  ux ]   ← linear part | translational part
+[ m21  m22  uy ]  
+[  0    0    1 ]
+</code></pre></div><h2 id="affine-transformations-in-3d"><a href="#affine-transformations-in-3d" class="header-anchor">#</a> Affine Transformations in 3D</h2> <ul><li>Homogeneous coordinates에서는 3D affine transformation을<br>
+4×4 행렬 곱으로 표현할 수 있음:</li></ul> <div class="language- extra-class"><pre class="language-text"><code>[ m11  m12  m13  ux ]   ← linear part | translational part
+[ m21  m22  m23  uy ]  
+[ m31  m32  m33  uz ]  
+[  0    0    0    1  ]
+</code></pre></div><h2 id="summary-affine-transformation"><a href="#summary-affine-transformation" class="header-anchor">#</a> Summary: Affine Transformation</h2> <ul><li>p라는 점 집합에 대해 affine transformation M을 적용하면:</li></ul> <div class="language- extra-class"><pre class="language-text"><code>p' = M * p
+
+M =
+[ m11  m12  m13  t1 ]  
+[ m21  m22  m23  t2 ]  
+[ m31  m32  m33  t3 ]  
+[  0    0    0    1 ]
+</code></pre></div><ul><li>각 점마다 개별적으로 적용:</li></ul> <div class="language- extra-class"><pre class="language-text"><code>p₁′ = M * p₁  
+p₂′ = M * p₂  
+...  
+pₙ′ = M * pₙ
+</code></pre></div><p>(도식: 돌고래 mesh의 각 점에 transform 적용 예시)</p> <h2 id="summary-composition-of-affine-transformations"><a href="#summary-composition-of-affine-transformations" class="header-anchor">#</a> Summary: Composition of Affine Transformations</h2> <ul><li><p>여러 개의 affine transformation (예: M₁, M₂)을 순차적으로 적용할 수 있음</p></li> <li><p>각 점마다:</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>p₁′ = M₂ * M₁ * p₁  
+p₂′ = M₂ * M₁ * p₂  
+...  
+pₙ′ = M₂ * M₁ * pₙ
+</code></pre></div><p>(도식: 돌고래 mesh에 두 변환을 순차 적용한 예시)</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">최종 수정 :</span> <span class="time">5/3/2025, 9:07:08 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/computer-graphics/2-Rendering-Basics.html" class="prev">
+        2-Rendering-Basics
+      </a></span> <span class="next"><a href="/computer-graphics/4-Affine-Space-Frame_Matrix.html">
+        4-Affine-Space-Frame_Matrix
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.1a586d9d.js" defer></script><script src="/assets/js/24.3c2f7e40.js" defer></script><script src="/assets/js/2.c315856f.js" defer></script><script src="/assets/js/1.07f33ce1.js" defer></script><script src="/assets/js/28.253c07b2.js" defer></script><script src="/assets/js/20.4dde745d.js" defer></script>
+  </body>
+</html>

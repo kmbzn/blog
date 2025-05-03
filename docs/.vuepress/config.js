@@ -1,5 +1,4 @@
 module.exports = {
-    title: 'f0xx',
     description: 'Summarizing key concepts from CS lectures.',
     email: 'kmbzn24@gmail.com',
     base: '/',
@@ -21,7 +20,7 @@ module.exports = {
         ]
     ],
     themeConfig: {
-        logo: '/images/logo.png',  // ← 이 줄 추가
+        logo: '/images/kmbzn.png',  // ← 이 줄 추가
         sidebar: [
             {
                 title: '🖥️ Computer Graphics',
