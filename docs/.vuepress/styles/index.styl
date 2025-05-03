@@ -1,16 +1,22 @@
 body
   font-family 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', sans-serif
 
+
 .theme-default-content
-  code,
-  pre,
-  div[class*="language-"] pre,
-  div[class*="language-"] code
+  code
     background-color $codeBgColor
-    color #121212
     font-family 'Victor Mono', 'Pretendard', monospace
     font-weight 500
-    border-radius 8px
+    
+  div[class*="language-"] pre
+    border 1px solid #ccc
+
+  div[class*="language-"] code
+    color #000000
+    border none
+    background transparent
+    padding 0
+
 
 table
   background-color #ffffff
@@ -51,3 +57,6 @@ th
 
 .last-updated
   text-align right !important
+
+.theme-default-content img
+  border-radius 4px

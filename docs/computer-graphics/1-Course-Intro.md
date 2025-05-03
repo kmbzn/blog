@@ -6,18 +6,17 @@
   - yoonasanglee@hanyang.ac.kr
 
 - Teaching Assistants:
-  - Eunho Jung (정은호)  
-  - Hank Nam (남한규)  
-  - Bokyeong Jang (장보경)  
-  - Chanwoo Baek (백찬우)  
-  - 이메일 주소는 여기서 확인 가능: https://cg.hanyang.ac.kr/people.html
+  - Eunho Jung
+  - Hank Nam
+  - Bokyeong Jang
+  - Chanwoo Baek
+  - 이메일 주소는 [여기](https://cg.hanyang.ac.kr/people.html)서 확인 가능
 
 - Course Homepage  
   - LMS 강의 홈페이지: portal.hanyang.ac.kr 또는 learning.hanyang.ac.kr  
   - 슬라이드는 Lecture Contents(강의자료 탭)에 업로드됨  
     - 보통 강의 직전에 업로드되므로, 강의 시작 시 미리 다운로드할 것  
-  - 작년 슬라이드를 참고하고 싶다면 다음 링크 사용:  
-    https://cgvity.github.io/course/2023-spring-cg.html
+  - 작년 슬라이드를 참고하고 싶다면 [다음 링크](https://cgvity.github.io/course/2023-spring-cg.html) 사용:  
 
 ## What is Computer Graphics?
 
