@@ -3,7 +3,7 @@
     <div class="empty">
       <!-- (Optional) Custom content goes here -->
     </div>
-
+    
     <div class="footer">
       <hr />
       <p class="copyright">

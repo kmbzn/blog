@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'kmbzn',
+    title: 'f0xx',
     description: 'Summarizing key concepts from CS lectures.',
     email: 'kmbzn24@gmail.com',
     base: '/',
@@ -21,6 +21,7 @@ module.exports = {
         ]
     ],
     themeConfig: {
+        logo: '/images/logo.png',  // ← 이 줄 추가
         sidebar: [
             {
                 title: '🖥️ Computer Graphics',
@@ -39,10 +40,6 @@ module.exports = {
         ],
         sidebarDepth: 0,
         nav: [
-            /*
-            { text: 'Home', link: '/', target: '_self' },
-            { text: 'Github', link: 'https://github.com/gyoogle/tech-interview-for-developer' }
-            */
         ],
         smoothScroll: true,
         lastUpdated: '최종 수정 '
