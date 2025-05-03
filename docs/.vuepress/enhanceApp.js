@@ -5,6 +5,8 @@ export default ({
     // siteData // site metadata
   }) => {
     // ...apply enhancements to the app
+
+    /*
     router.afterEach((to, from) => {
       if (from.path !== to.path) {
         if (typeof window !== 'undefined' && window.DISQUS) {
@@ -17,4 +19,7 @@ export default ({
         // same page but hash changed
       }
     })
+
+    */
+    
   }
