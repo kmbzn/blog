@@ -1,9 +1,5 @@
 # 4 - Affine Space / Frame / Matrix
 
-Yoonsang Lee  
-Hanyang University  
-Spring 2025
-
 ## Updates in Prev. Lecture Slides – Rigid Transformations
 
 - 모든 점 사이의 거리를 유지함  

@@ -1,8 +1,4 @@
-# 5 - Vertex Processing 1  
-
-Yoonsang Lee  
-Hanyang University  
-Spring 2025
+# 5 - Vertex Processing 1
 
 ## Outline
 

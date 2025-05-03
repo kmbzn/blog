@@ -1,9 +1,5 @@
 # 3 - Transformations
 
-Yoonsang Lee  
-Hanyang University  
-Spring 2025
-
 ## Outline
 
 - 2차원 변환  
