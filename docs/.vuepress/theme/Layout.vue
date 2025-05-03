@@ -1,24 +1,17 @@
 <template>
-    <ParentLayout >
-        <Disqus slot="page-bottom" class="content"/>
-    </ParentLayout>
+  <ParentLayout />
 </template>
 
-<style>
-    .content {
-        padding-top: 3vw;
-        padding-left: 9vw;
-        padding-right: 9vw;
-    }
-</style>
-
 <script>
-    import ParentLayout from '@parent-theme/layouts/Layout.vue'
-    import Disqus from '../components/Disqus'
-    export default {
-        components: {
-            ParentLayout,
-            Disqus
-        }
-    }
+import ParentLayout from '@parent-theme/layouts/Layout.vue'
+
+export default {
+  components: {
+    ParentLayout
+  }
+}
 </script>
+
+<style>
+/* 필요하면 스타일 유지 */
+</style>
