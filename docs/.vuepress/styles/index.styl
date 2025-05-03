@@ -5,16 +5,15 @@ body
   word-break break-word
   overflow-wrap anywhere
   padding 0 1rem !important
-  border-radius 4px !important
 
   code
-    background-color $codeBgColor
+    
     font-family 'Victor Mono', 'Pretendard', monospace
     font-weight 500
 
   div[class*="language-"]
-    border-radius 4px !important
     margin 0 0
+    background-color #f5f5f5
     pre
       border 1px solid #ccc
 
@@ -64,8 +63,7 @@ th
   text-align right !important
 
 .theme-default-content img
-  border-radius 4px
+  border-radius 6px
 
-.search-box
-  .search-icon
-    display none
+.search-box input 
+  border 1px solid $borderColor
