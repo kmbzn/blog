@@ -337,16 +337,6 @@ p' = TRp
 
 ## Quiz 2
 
-- https://www.slido.com/ 접속
-- #cg-ys 참여
-- "Polls" 클릭
-
-- 제출 형식:
-  - Student ID: Your answer
-  - 예: 2021123456: 4.0
-
-- 위 형식을 지키지 않으면 출석 점수 인정 안 됨
-
 ## Creating Polygon Meshes
 
 - 일반적으로 polygon mesh는 3D 모델링 프로그램으로 생성됨

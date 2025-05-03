@@ -4,10 +4,12 @@ module.exports = {
     base: '/',
     head: [
         ['link', { rel: 'icon', href: `/images/logo.png` }],
-        ['link', { rel: 'manifest', href: '/manifest.json' }]
+        ['link', { rel: 'manifest', href: '/manifest.json' }],
+        ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/victor-mono@latest/dist/index.css' }],
+        ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css' }]
     ],
     plugins: [
-        '@vuepress/back-to-top',
+        // '@vuepress/back-to-top',
         ['@vuepress/pwa', {
           serviceWorker: true,
           updatePopup: true
@@ -20,7 +22,7 @@ module.exports = {
         ]
     ],
     themeConfig: {
-        logo: '/images/kmbzn.png',  // ← 이 줄 추가
+        logo: '/images/kmbzn.png',
         sidebar: [
             {
                 title: '🖥️ Computer Graphics',
@@ -41,6 +43,6 @@ module.exports = {
         nav: [
         ],
         smoothScroll: true,
-        lastUpdated: '최종 수정 '
+        lastUpdated: 'Last Updated '
     }
 }

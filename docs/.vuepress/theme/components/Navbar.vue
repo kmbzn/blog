@@ -100,7 +100,7 @@ $navbar-horizontal-padding = 1.5rem
   align-items center
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
-  position relative
+  position relative 
 
   a, span, img
     display inline-block
@@ -140,7 +140,6 @@ $navbar-horizontal-padding = 1.5rem
 
 @media (max-width: $MQMobile)
   .navbar
-    padding-left 4rem
 
     .can-hide
       display none

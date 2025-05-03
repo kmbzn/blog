@@ -195,14 +195,6 @@ R = [ 0.866  -0.5   ]     p = [ x ]     R * p = [ 0.866x - 0.5y ]
 
 ## Quiz 1
 
-- Go to https://www.slido.com/  
-- Join `#cg-ys`  
-- Click "Polls"
-
-- 아래 형식으로 정답을 제출하세요:  
-  - Student ID: Your answer  
-  - 예: 2021123456: 4.0
-
 - 반드시 위 형식에 맞게 제출해야 출석으로 인정됩니다
 
 ## 2D Translation
@@ -471,16 +463,6 @@ T(p) = [ M_T  u_T ]   * [ p ]
    **일관된 방식으로 처리할 수 있음!**
 
 ## Quiz 2
-
-- Go to https://www.slido.com/  
-- Join `#cg-ys`  
-- Click "Polls"
-
-- 아래 형식으로 정답을 제출하세요:  
-  - Student ID: Your answer  
-  - 예: 2021123456: 4.0
-
-- 반드시 위 형식에 맞게 제출해야 출석으로 인정됩니다
 
 # Two Types of 3D Cartesian Coordinate System
 

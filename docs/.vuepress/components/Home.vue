@@ -1,13 +1,10 @@
 <template>
   <div class="theme-default-content content__default">
-    <div class="empty">
-      <!-- (Optional) Custom content goes here -->
-    </div>
-    
     <div class="footer">
       <hr />
       <p class="copyright">
-        © 2020 Gyoogle · <a href="https://github.com/kmbzn/blog/blob/master/LICENSE" target="_blank">MIT License</a>
+        © 2025&nbsp; kmbzn &nbsp;&nbsp;· <a href="https://github.com/kmbzn/blog/blob/master/LICENSE" target="_blank">MIT License</a><br>
+        © 2020 Gyoogle · <a href="https://github.com/gyoogle/blog/blob/master/LICENSE" target="_blank">MIT License</a>
       </p>
     </div>
   </div>
@@ -19,19 +16,17 @@ export default {}
 
 <style>
 .theme-default-content.content__default {
-  padding: 2rem;
+  padding: 0;
   max-width: 740px;
-  margin: 0 auto;
 }
 
 .footer {
   text-align: center;
-  margin-top: 4rem;
 }
 
 .copyright {
   color: gray;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   line-height: 1.4;
 }
 </style>

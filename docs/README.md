@@ -1,7 +1,7 @@
 # 2025-1 Computer Graphics
 
-Welcome to my repository for the **2025 Spring Semester Computer Graphics** course.  
-This repo contains lecture notes, code assignments, and practical experiments related to rendering, transformations, and visual computing.
+2025년 1학기 **Computer Graphics** 강의를 위한 저장소에 오신 것을 환영합니다.  
+이 저장소는 렌더링, 변환, 시각 컴퓨팅과 관련된 강의 노트, 코드 과제, 실습 실험 등을 포함하고 있습니다.
 
 ---
 
@@ -22,7 +22,7 @@ This repo contains lecture notes, code assignments, and practical experiments re
 
 ## 📁 Repository Structure
 
-```plaintext
+```txt
 2025-1-computer-graphics/
 ├── 1-Course-Intro.md                   # 강의 소개 및 전체 커리큘럼 개요
 ├── 2-Rendering-Basics.md               # 렌더링 기초 개념 (렌더링 파이프라인 입문)
@@ -31,49 +31,46 @@ This repo contains lecture notes, code assignments, and practical experiments re
 ├── 5-Vertex-Processing-1.md            # 정점 처리 단계 - 1부
 ├── 6-Vertex-Processing-2.md            # 정점 처리 단계 - 2부
 ├── 7-Hierachical-Modeling-Mesh.md      # 계층적 모델링, Mesh 구조
-├── 8-Lighting.md                       # 조명(Lighting) 개념 및 모델
-└── README.md                           # 저장소 소개 및 사용 안내
+└── 8-Lighting.md                       # 조명(Lighting) 개념 및 모델
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-1. Clone this repository:
+1. 저장소를 clone합니다:
    ```bash
    git clone git@github.com:kmbzn/2025-1-computer-graphics.git
    ```
-2. Open the folder in VSCode or Code App
-3. Follow the build instructions inside each assignment folder
-
-> ⚠️ GLSL 프로젝트는 GPU 환경에서 실행해야 하며, 일부 예제는 WebGL로도 제공될 수 있습니다.
+2. VSCode 또는 Code App으로 폴더를 엽니다.  
+3. 각 과제 폴더 내의 빌드 안내를 따라 실행합니다.
 
 ---
 
 ## 🧠 Goals
 
-- Understand how real-time rendering works under the hood
-- Build a simple graphics pipeline step by step
-- Gain hands-on experience with transformation, lighting, and shader programming
+- 실시간 렌더링이 내부적으로 어떻게 동작하는지 이해합니다.  
+- 그래픽 파이프라인을 단계별로 구축해봅니다.  
+- 변환, 조명, 셰이더 프로그래밍에 대한 실습 경험을 쌓습니다.
 
 ---
 
 ## ✨ Preview
 
 ![render-example](/images/example.png)  
-*Example output from HW2: 3D Viewer*
+*HW2: 3D Viewer의 예제 결과 출력 화면*
 
 ---
 
 ## 📝 License
 
-This repository is intended for educational use.  
-Feel free to reference, fork, or build upon for non-commercial academic purposes.
+본 저장소는 교육 목적을 위해 제공됩니다.  
+비상업적인 학술 용도에 한하여 자유롭게 참고, fork, 편집하실 수 있습니다.
 
 ---
 
 ## 📬 Contact
 
-For any inquiries, feel free to reach me via GitHub Issues or email: `kmbzn@github.com`
+질문이나 문의 사항은 GitHub Issues 또는 이메일 `kmbzn24@gmail.com`으로 연락주세요.
 
 <Home/>
