@@ -7,13 +7,7 @@
     <div class="footer">
       <hr />
       <p class="copyright">
-        © 2020 Gyoogle  
-        <br />
-        This site is based on  
-        <a href="https://github.com/gyoogle/tech-interview-for-developer" target="_blank">
-          Tech Interview for Developer
-        </a>,  
-        which is licensed under the MIT License.
+        © 2020 Gyoogle · <a href="https://github.com/kmbzn/blog/blob/master/LICENSE" target="_blank">MIT License</a>
       </p>
     </div>
   </div>
