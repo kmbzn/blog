@@ -2,7 +2,7 @@
 
 ## Course Information
 
-- Instructor: **Yoonsang Lee (이윤상)**
+- Instructor: **Yoonsang Lee**
   - yoonasanglee@hanyang.ac.kr
 
 - Teaching Assistants:
