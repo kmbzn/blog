@@ -34,15 +34,6 @@ export default {}
   max-width: 740px;
 }
 
-.footer {
-  text-align: center;
-  padding-top: 0;
-}
-
-.footer hr {
-  margin: 0 -1.5rem;
-}
-
 .built-with {
   font-size: 0.7rem;
   color: #999;
@@ -55,6 +46,8 @@ export default {}
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
   gap: 0.7rem;
 }
 
@@ -76,9 +69,30 @@ export default {}
   text-decoration: underline;
 }
 
-.copyright {
+.footer {
+  text-align: center;
+  padding-top: 0;
+}
+
+.footer hr,
+.footer .copyright {
+  width: auto;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  box-sizing: border-box;
+}
+.footer hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.footer .copyright {
+  margin-top: 0.8rem;
   color: #666;
   font-size: 0.7rem;
   line-height: 1.5;
 }
+
 </style>
