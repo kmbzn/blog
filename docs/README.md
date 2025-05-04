@@ -49,7 +49,7 @@ If you'd like to create your own blog based on this one:
 2. Click the **Fork** button at the top-right of the page.
 3. After forking, clone it to your local machine:
 
-  ```bash
+  ```sh
   git clone https://github.com/kmbzn/blog.git
   cd blog
   ```

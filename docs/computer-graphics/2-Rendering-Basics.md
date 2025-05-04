@@ -91,11 +91,11 @@
   - primitive 예시: triangle, line, point 등  
   - 각 primitive는 이미지 내 어느 픽셀에 영향을 미치는지를 결정하고 해당 픽셀의 색을 설정함
 
-```
-for each primitive in scene
-  transform the primitive to viewport
-  find pixels for the primitive
-  set color of the pixels based on texture and lighting model
+```py
+for each primitive in scene :
+    transform the primitive to viewport
+    find pixels for the primitive
+    set color of the pixels based on texture and lighting model
 ```
 
 - 예시: 삼각형 하나가 화면에 렌더링됨
