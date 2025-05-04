@@ -5,7 +5,7 @@
 
 ---
 
-![Profile Image](kmbzn.com/images/profile.jpg)  
+![Profile Image](https://kmbzn.com/images/profile.jpg)  
 *Hi, I'm Byungjun Kim — welcome to my personal blog...*
 
 ---
