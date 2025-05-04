@@ -5,7 +5,12 @@ module.exports = {
   email: 'kmbzn24@gmail.com',
   base: '/',
   head: [
-    ['link', { rel: 'icon', href: `/images/logo.png` }],
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/android-chrome-192x192.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/android-chrome-512x512.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/victor-mono@latest/dist/index.css' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css' }]
@@ -14,27 +19,6 @@ module.exports = {
     ['@vuepress/pwa', {
       serviceWorker: true,
       updatePopup: true
-    }],
-    ['@vuepress/google-analytics', {
-      ga: 'UA-143055167-2'
-    }],
-    ['@vuepress/plugin-last-updated', {
-        transformer: (timestamp) => {
-            // 항상 UTC라고 가정
-            const KST_OFFSET = 9 * 60 * 60 * 1000
-            const utcDate = new Date(typeof timestamp === 'number' ? timestamp : Date.parse(timestamp))
-            const kstDate = new Date(utcDate.getTime() + KST_OFFSET)
-          
-            const pad = (n) => n.toString().padStart(2, '0')
-            const year = kstDate.getFullYear()
-            const month = kstDate.getMonth() + 1
-            const day = kstDate.getDate()
-            const hour = pad(kstDate.getHours())
-            const minute = pad(kstDate.getMinutes())
-            const second = pad(kstDate.getSeconds())
-          
-            return `${year}-${month}-${day} ${hour}:${minute}:${second}`
-          }
     }]
   ],
   themeConfig: {
@@ -58,6 +42,6 @@ module.exports = {
     sidebarDepth: 0,
     nav: [],
     smoothScroll: true,
-    lastUpdated: 'Last Updated'
+    lastUpdated: false
   }
 }
