@@ -44,6 +44,19 @@ th
 .page-nav
   display none
 
+.theme-default-content img
+  border-radius 6px
+
+.search-box input
+  border 1px solid $borderColor
+
+.last-updated
+  text-align right
+
+.search-box input + svg {
+  display: none !important;
+}
+
 @media print
   .navbar,
   .sidebar,
@@ -57,12 +70,3 @@ th
 
   body
     overflow visible
-
-.theme-default-content img
-  border-radius 6px
-
-.search-box input
-  border 1px solid $borderColor
-
-.last-updated
-  text-align right

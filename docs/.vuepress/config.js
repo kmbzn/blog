@@ -35,7 +35,7 @@ module.exports = {
                     ['/computer-graphics/5-Vertex-Processing-1', '5-Vertex-Processing-1'],
                     ['/computer-graphics/6-Vertex-Processing-2', '6-Vertex-Processing-2'],
                     ['/computer-graphics/7-Hierachical-Modeling-Mesh', '7-Hierachical-Modeling-Mesh'],
-                    ['/computer-graphics/8-Lighting', '8-Lighting'],
+                    // ['/computer-graphics/8-Lighting', '8-Lighting'],
                 ]
             }
         ],
