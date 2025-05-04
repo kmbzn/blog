@@ -4,23 +4,22 @@ body
 .theme-default-content
   word-break break-word
   overflow-wrap anywhere
-  padding 0 1rem !important
+  padding 0 1.5rem !important
 
   code
-    
     font-family 'Victor Mono', 'Pretendard', monospace
     font-weight 500
 
   div[class*="language-"]
-    margin 0 0
-    background-color #f5f5f5
+    margin 0 -1rem
+    background: transparent
     pre
       border 1px solid #ccc
-
+      border-radius: 6px
+      background-color: #f3f3f3
     code
       color #000000
       border none
-      background transparent
 
 table
   background-color #ffffff
@@ -37,7 +36,7 @@ th
   font-weight 600
 
 .sidebar
-  top 0 !important
+  top 0
 
 .sidebar > .sidebar-links
   padding-top 100px !important
@@ -49,21 +48,21 @@ th
   .navbar,
   .sidebar,
   .footer
-    display none !important
+    display none
 
   .theme-default-content
-    margin-left 0 !important
-    padding 0 3rem !important
-    max-width 100% !important
+    margin-left 0
+    padding 0 2rem
+    max-width 100%
 
   body
-    overflow visible !important
-
-.last-updated
-  text-align right !important
+    overflow visible
 
 .theme-default-content img
   border-radius 6px
 
-.search-box input 
+.search-box input
   border 1px solid $borderColor
+
+.last-updated
+  text-align right
