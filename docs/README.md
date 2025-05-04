@@ -5,7 +5,7 @@
 
 ---
 
-![Profile Image](/images/example.png)  
+![Profile Image](/images/profile.jpg)  
 *Hi, I'm kmbzn — welcome to my personal blog.*
 
 ---
@@ -18,7 +18,7 @@
 | University   | Hanyang Univ. (Class of 2021)                                        |
 | Major        | Dept. of Computer Science                                            |
 | High School  | Joongdong High. 112th Graduate                                       |
-| Interests    | Computer Graphics, Operating Systems, Bitcoin, Linux                 |
+| Interests    | Computer Graphics, Operating Systems, Crypto, Linux                  |
 
 ---
 
