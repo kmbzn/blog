@@ -20,20 +20,21 @@ module.exports = {
     }],
     ['@vuepress/plugin-last-updated', {
         transformer: (timestamp) => {
-            const kstOffsetMs = 9 * 60 * 60 * 1000
-            const kstDate = new Date(timestamp + kstOffsetMs)
-            
-            const pad = n => n.toString().padStart(2, '0')
-            
+            // 항상 UTC라고 가정
+            const KST_OFFSET = 9 * 60 * 60 * 1000
+            const utcDate = new Date(typeof timestamp === 'number' ? timestamp : Date.parse(timestamp))
+            const kstDate = new Date(utcDate.getTime() + KST_OFFSET)
+          
+            const pad = (n) => n.toString().padStart(2, '0')
             const year = kstDate.getFullYear()
             const month = kstDate.getMonth() + 1
             const day = kstDate.getDate()
             const hour = pad(kstDate.getHours())
             const minute = pad(kstDate.getMinutes())
             const second = pad(kstDate.getSeconds())
-            
-            return `${year}/${month}/${day} ${hour}:${minute}:${second}`
-            }
+          
+            return `${year}-${month}-${day} ${hour}:${minute}:${second}`
+          }
     }]
   ],
   themeConfig: {
