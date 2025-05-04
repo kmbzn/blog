@@ -51,7 +51,7 @@ th
   border 1px solid $borderColor
 
 .last-updated
-  text-align right
+  text-align right !important
 
 .search-box input + svg {
   display: none !important;
@@ -60,7 +60,8 @@ th
 @media print
   .navbar,
   .sidebar,
-  .footer
+  .footer,
+  .last-updated
     display none
 
   .theme-default-content
