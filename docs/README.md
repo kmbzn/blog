@@ -5,7 +5,7 @@
 
 ---
 
-![Profile Image](/images/profile.jpg)  
+![Profile Image](kmbzn.com/images/profile.jpg)  
 *Hi, I'm Byungjun Kim — welcome to my personal blog...*
 
 ---
@@ -23,21 +23,36 @@
 
 ---
 
-## 🗂 Blog Categories
+## 📚 Blog Topics
 
-- CS 공부 정리
-  - Computer Graphics
-- 알고리즘 풀이
-- 디자인 아이디어
-- 개발 노트
-- 공부 정리
+다음과 같은 분야에 대한 내용을 다루려고 합니다:
 
----
+- **컴퓨터 공학 (Computer Science)**
+  - 운영체제(xv6, Scheduling, System Call)
+  - 컴퓨터 구조(RISC-V, 파이프라인, 캐시, OoO 실행)
+  - 임베디드 시스템(Arduino, Verilog, FPGA)
+  - 프로그래밍 언어 및 소프트웨어 도구(Git, GitHub, Markdown, CSS)
+  - 렌더링 기초, 변환 행렬, 조명 모델
+  - 그래픽 파이프라인 및 OpenGL 실습
 
-## ✍ Recent Posts
+- **웹 개발 및 블로그 퍼블리싱**
+  - VuePress 기반 정적 블로그 커스터마이징
+  - 마크다운 문서화, 코드 하이라이팅, 수식 rendering
 
-- 최신 글들은 좌측의 side bar에서 확인하실 수 있습니다.  
-- 아직 작성 중인 게시글들도 차차 공개될 예정입니다.
+- **디자인**
+  - 로고 디자인 및 시각적 아이덴티티 구성
+  - 타이포그래피, 레이아웃 설계, UI 스타일링
+
+- **기기 활용 및 디지털 리페어**
+  - iPhone 데이터 복구, 부품 교체
+  - iPad, Mac, Ubuntu 간 워크플로우 연동
+
+- **실생활 관심사**
+  - 통신 요금제 비교
+  - 기계식 시계 구조(ETA 무브먼트, hairspring 등)
+  - 드레스워치 스타일, 스트랩 선택 경험
+
+> 전공 기반의 기술적 탐구부터 시각적 표현과 취향까지, 다양한 주제를 자유롭게 정리하고 공유하는 공간입니다.
 
 ---
 
