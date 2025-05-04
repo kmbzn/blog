@@ -5,6 +5,11 @@ module.exports = {
   email: 'kmbzn24@gmail.com',
   base: '/',
   head: [
+    ['meta', { property: 'og:title', content: 'kmbzn' }],
+    ['meta', { property: 'og:description', content: 'kmbzn.com' }],
+    ['meta', { property: 'og:image', content: 'https://kmbzn.com/images/og-home.png' }],
+    ['meta', { property: 'og:url', content: 'https://kmbzn.com' }],
+    ['meta', { property: 'og:type', content: 'website' }],
     ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }],
     ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }],
