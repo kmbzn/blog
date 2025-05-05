@@ -1,19 +1,5 @@
 # 4 - Affine Space / Frame / Matrix
 
-## Updates in Prev. Lecture Slides – Rigid Transformations
-
-- 모든 점 사이의 거리를 유지함  
-  ∥g(u) − g(v)∥ = ∥u − v∥, ∀u, v ∈ ℝ³
-
-- "Handedness"를 보존함  
-  - 회전의 경우:  
-    g(u) × g(v) = g(u × v), ∀u, v ∈ ℝ³  
-    (reflection은 보존하지 않음)  
-    (translation은 방향을 바꾸지 않으므로 영향을 주지 않음)
-
-- 일부 문헌에서는 reflection을 rigid transformation으로 분류하지만,  
-  본 강의에서는 포함하지 않음
-
 ## Outline
 
 - Affine Space - Point vs. Vector  

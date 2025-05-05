@@ -52,13 +52,13 @@
 - Linear transformation은 다음 조건을 만족해야 함:
 
   $$
-  T(\\mathbf{v}_1 + \\mathbf{v}_2) = T(\\mathbf{v}_1) + T(\\mathbf{v}_2), \quad T(c\\mathbf{v}) = cT(\\mathbf{v})
+  T(\\mathbf{v}_1 + \\mathbf{v}_2) \\\\ = T(\\mathbf{v}_1) + T(\\mathbf{v}_2), \quad T(c\\mathbf{v}) \\\\ = cT(\\mathbf{v})
   $$
 
 - 행렬 $M$ 또한 동일한 *선형성(linearity)*을 만족:
 
   $$
-  M(\\mathbf{v}_1 + \\mathbf{v}_2) = M\\mathbf{v}_1 + M\\mathbf{v}_2, \quad M(c\\mathbf{v}) = c(M\\mathbf{v})
+  M(\\mathbf{v}_1 + \\mathbf{v}_2) \\\\ = M\\mathbf{v}_1 + M\\mathbf{v}_2, \quad M(c\\mathbf{v}) \\\\ = c(M\\mathbf{v})
   $$
 
 ## 2D Linear Transformations
@@ -80,7 +80,7 @@ $$
 \begin{bmatrix}
 s & 0 \\\\
 0 & s
-\end{bmatrix},
+\end{bmatrix} \\\\  
 \quad
 \mathbf{p} =
 \begin{bmatrix}
@@ -248,13 +248,13 @@ $$
 
 - 선형성(linearity)을 만족하지 않음:  
     $$
-    T(\mathbf{v}_1 + \mathbf{v}_2) \neq T(\mathbf{v}_1) + T(\mathbf{v}_2) ~~~ T(c\mathbf{v}) \neq cT(\mathbf{v})
+    T(\mathbf{v}_1 + \mathbf{v}_2) \neq T(\mathbf{v}_1) + T(\mathbf{v}_2) \\\\ T(c\mathbf{v}) \neq cT(\mathbf{v})
     $$
 
     예:
 
     $$
-    cT(\mathbf{v}) = c(\mathbf{v} + \mathbf{b}) = c\mathbf{v} + c\mathbf{b} \neq T(c\mathbf{v}) = c\mathbf{v} + \mathbf{b}
+    cT(\mathbf{v}) = c(\mathbf{v} + \mathbf{b}) = c\mathbf{v} + c\mathbf{b} \\\\ \neq T(c\mathbf{v}) = c\mathbf{v} + \mathbf{b}
     $$
 
 
@@ -287,13 +287,13 @@ $$
 - 모든 점 사이의 거리를 유지함
 
   $$
-  \|g(\mathbf{u}) - g(\mathbf{v})\| = \|\mathbf{u} - \mathbf{v}\|, \quad \forall\, \mathbf{u}, \mathbf{v} \in \mathbb{R}^3 \quad (g: \text{rigid transform map})
+  \|g(\mathbf{u}) - g(\mathbf{v})\| = \|\mathbf{u} - \mathbf{v}\|, \\\\ \forall \mathbf{u}, \mathbf{v} \in \mathbb{R}^3 \quad (g: \text{rigid transform map})
   $$
 
 - "Handedness"를 보존함:  
   - 선형 변환 중 handedness를 보존하는 회전의 조건:  
     $$
-    g(\mathbf{u}) \times g(\mathbf{v}) = g(\mathbf{u} \times \mathbf{v}), \quad \forall\, \mathbf{u}, \mathbf{v} \in \mathbb{R}^3
+    g(\mathbf{u}) \times g(\mathbf{v}) = g(\mathbf{u} \times \mathbf{v}), \\\\ \forall \mathbf{u}, \mathbf{v} \in \mathbb{R}^3
     $$  
     - Reflection은 보존하지 않음
   - Translation은 방향을 바꾸지 않으므로 영향을 주지 않음
@@ -357,7 +357,8 @@ $$
   $$
 
   $$
-  (S \circ T)(\mathbf{p}) = M_S M_T \mathbf{p} = (M_S M_T)\mathbf{p} = M_S (M_T \mathbf{p})
+  (S \circ T)(\mathbf{p}) = M_S M_T \mathbf{p} \\\\
+   = (M_S M_T)\mathbf{p} = M_S (M_T \mathbf{p})
   $$
 
 ## Order Matters!
@@ -389,13 +390,13 @@ $$
 - Affine 변환의 합성은 복잡해짐:
 
 $$
-T(\mathbf{p}) = M_T \mathbf{p} + \mathbf{u}_T \quad\quad
+T(\mathbf{p}) = M_T \mathbf{p} + \mathbf{u}_T \\\\
 S(\mathbf{p}) = M_S \mathbf{p} + \mathbf{u}_S
 $$
 
 $$
 (S \circ T)(\mathbf{p}) = M_S(M_T \mathbf{p} + \mathbf{u}_T) + \mathbf{u}_S \\\\
-\quad\quad\quad\quad\quad\quad\quad~ = (M_S M_T) \mathbf{p} + (M_S \mathbf{u}_T + \mathbf{u}_S)
+= (M_S M_T) \mathbf{p} + (M_S \mathbf{u}_T + \mathbf{u}_S)
 $$
 
 - 더 깔끔한 표현 방식이 필요함  
@@ -456,7 +457,7 @@ $$
   m_{11} & m_{12} & u_x \\\\
   m_{21} & m_{22} & u_y \\\\
   0 & 0 & 1
-  \end{bmatrix}\text{← linear part + translational part}
+  \end{bmatrix}
   $$
 
 - **Affine transformation 합성**은 **3×3 행렬 곱셈**으로 간단하게 처리 가능:
@@ -473,7 +474,7 @@ T(\mathbf{p}) =
 \begin{bmatrix}
 M_T & \mathbf{u}_T \\\\
 0 & 1
-\end{bmatrix}, \quad
+\end{bmatrix}, \\\\
 S(\mathbf{p}) =
 \begin{bmatrix}
 M_S & \mathbf{u}_S \\\\
@@ -482,7 +483,7 @@ M_S & \mathbf{u}_S \\\\
 $$
 
 $$
-(S \circ T)(\mathbf{p}) =
+(S \circ T)(\mathbf{p}) \\\\ =
 \begin{bmatrix}
 M_S & \mathbf{u}_S \\\\
 0 & 1
@@ -494,7 +495,7 @@ M_T & \mathbf{u}_T \\\\
 \begin{bmatrix}
 \mathbf{p} \\\\
 1
-\end{bmatrix} =
+\end{bmatrix} \\\\ =
 \begin{bmatrix}
 (M_S M_T) \mathbf{p} + (M_S \mathbf{u}_T + \mathbf{u}_S) \\\\
 1
@@ -640,7 +641,7 @@ $$
   p_y \\\\
   p_z
   \end{bmatrix}
-  \quad\text{or}\quad
+  \\\\ \text{or}\ \\\\
   \begin{bmatrix}
   m_{11} & m_{12} & m_{13} & 0 \\\\
   m_{21} & m_{22} & m_{23} & 0 \\\\
@@ -667,7 +668,7 @@ $$
   0 & 0 & S_z
   \end{bmatrix}
   \quad\text{(3D)}
-  \qquad
+  \\\\
   S_s =
   \begin{bmatrix}
   S_x & 0 & 0 & 0 \\\\
@@ -687,7 +688,7 @@ $$
   0 & 1 & 0 \\\\
   0 & 0 & 1
   \end{bmatrix}
-  \quad\text{또는}\quad
+  \\\\ \text{or} \\\\
   H_{x,d} =
   \begin{bmatrix}
   1 & d_y & d_z & 0 \\\\
@@ -831,15 +832,16 @@ m_{31} & m_{32} & m_{33} & u_3 \\\\
 0 & 0 & 0 & 1
 \end{bmatrix}
 $$
+
 $$
-\mathbf{p}_i' \leftarrow \mathbf{M} \, \mathbf{p}_i
+\mathbf{p}_i' \leftarrow \mathbf{M} \mathbf{p}_i
 $$
 
 $$
-\mathbf{p}_1' \leftarrow \mathbf{M} \, \mathbf{p}_1 \quad
-\mathbf{p}_2' \leftarrow \mathbf{M} \, \mathbf{p}_2 \quad
-\mathbf{p}_3' \leftarrow \mathbf{M} \, \mathbf{p}_3 \quad \dots \quad
-\mathbf{p}_N' \leftarrow \mathbf{M} \, \mathbf{p}_N
+\mathbf{p}_1' \leftarrow \mathbf{M} \mathbf{p}_1 \\\\
+\mathbf{p}_2' \leftarrow \mathbf{M} \mathbf{p}_2 \\\\
+\mathbf{p}_3' \leftarrow \mathbf{M} \mathbf{p}_3 \\\\ \dots \\\\
+\mathbf{p}_N' \leftarrow \mathbf{M} \mathbf{p}_N
 $$
 
 ## Summary: Composition of Affine Transformations
@@ -849,13 +851,13 @@ $$
 - 각 점마다 개별적으로:
 
 $$
-\mathbf{p}_i'' \leftarrow \mathbf{M}_2 \, \mathbf{M}_1 \, \mathbf{p}_i
+\mathbf{p}_i'' \leftarrow \mathbf{M}_2  \mathbf{M}_1  \mathbf{p}_i
 $$
 
 $$
-\mathbf{p}_1'' \leftarrow \mathbf{M}_2 \mathbf{M}_1 \mathbf{p}_1 \quad
-\mathbf{p}_2'' \leftarrow \mathbf{M}_2 \mathbf{M}_1 \mathbf{p}_2 \quad
-\mathbf{p}_3'' \leftarrow \mathbf{M}_2 \mathbf{M}_1 \mathbf{p}_3 \quad \dots \quad
+\mathbf{p}_1'' \leftarrow \mathbf{M}_2 \mathbf{M}_1 \mathbf{p}_1 \\\\
+\mathbf{p}_2'' \leftarrow \mathbf{M}_2 \mathbf{M}_1 \mathbf{p}_2 \\\\
+\mathbf{p}_3'' \leftarrow \mathbf{M}_2 \mathbf{M}_1 \mathbf{p}_3 \\\\ \dots \\\\
 \mathbf{p}_N'' \leftarrow \mathbf{M}_2 \mathbf{M}_1 \mathbf{p}_N
 $$
 
