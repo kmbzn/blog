@@ -9,7 +9,7 @@
   - LMS 강의 홈페이지: portal.hanyang.ac.kr 또는 learning.hanyang.ac.kr  
   - 슬라이드는 Lecture Contents(강의자료 탭)에 업로드됨  
     - 보통 강의 직전에 업로드되므로, 강의 시작 시 미리 다운로드할 것  
-  - 작년 슬라이드를 참고하고 싶다면 [다음 링크](https://cgrhyu.github.io/courses/2023-spring-cg.html) 사용:  
+  - 작년 슬라이드를 참고하고 싶다면 [다음 링크](https://cgrhyu.github.io/courses/2023-spring-cg.html) 사용
 
 ## What is Computer Graphics?
 
@@ -18,22 +18,22 @@
   - Computer Graphics는 수학적 또는 기하학적 모델을 시각적 이미지 또는 애니메이션(이미지의 연속)으로 변환함  
   - 반대로, Computer Vision은 이미지나 영상으로부터 의미 있는 정보를 추출함
 
-## Movies & Games
+- Movies & Games
 
-- Encanto  
-- Red Dead Redemption 2
+  - Encanto  
+  - Red Dead Redemption 2
 
-## Engineering
+- Engineering
 
-- Solidworks 예시
+  - Solidworks
 
-## Natural Science
+- Natural Science
 
-- Foldit (단백질 접힘 시뮬레이션)
+  - Foldit (단백질 접힘 시뮬레이션)
 
-## Medical Science
+- Medical Science
 
-- CT 이미지와 Volume Rendering 예시
+  - CT 이미지와 Volume Rendering
 
 ## Course Overview
 
@@ -120,14 +120,14 @@
 
 ## Assignments - Grading
 
-- 과제 제출 (또는 재제출)은 실습 시간 내 3:45pm 이전까지  
+- 과제 제출 (또는 재제출)은 실습 시간 내 15:45 이전까지  
   - 최종 통과 시 → 100점  
   - 세션 이후에도 재제출 요청 가능
 
 - 실습 시간 이후 재제출 시  
   - 재제출 요청 불가  
   - 조건을 만족한 항목에 대해 부분 점수 부여  
-  - -10점 감점
+  - 10점 감점
 
 - 당일 23:59 이후 제출: 불가
 
@@ -154,7 +154,7 @@
 
 ## Grading
 
-| 항목         | 비율   |
+| 항목          | 비율   |
 |--------------|--------|
 | Midterm exam | 37.5%  |
 | Final exam   | 37.5%  |
@@ -196,7 +196,7 @@
 - 하지만 가장 중요한 목표는 학생들의 **이해도 향상**이므로  
   **중요한 슬라이드는 한국어로 풀어서(paraphrase) 설명**
 
-- 실습 Part 2에서는 조교가 전체 공지 시 영어 사용  
+- 실습 (Part 2)에서는 조교가 전체 공지 시 영어 사용  
   - 개인적으로는 한국어 또는 영어로 질문 가능
 
 ## Questions – Slido.com
@@ -265,19 +265,6 @@
 
 - → **두 번의 강의 모두 결석**으로 처리!
 
-## Just Try a Quiz!
-
-- 접속: https://www.slido.com/  
-- 참여: **#cg-ys**  
-- 클릭: "Polls"
-
-- 제출 형식:
-
-  - `학번: 정답`  
-    - 예: `2023123456: 4`
-
-- **출석 인정은 해당 형식으로 제출한 경우에만 인정됨**
-
 ## About Laptop
 
 - 강의와 실습에 **노트북 지참 필수**
@@ -338,7 +325,7 @@
 - 그러나 다음 강의를 따라가려면  
   - "1 - Lab - Environment Setting.pdf"를 참고하여 **환경 설정을 완료해야 함**
 
-- **Assignment 1 ("1 - Assignment.pdf")를 다음 강의 전까지 LMS로 제출할 것**
+- *Assignment 1 ("1 - Assignment.pdf")를 다음 강의 전까지 LMS로 제출할 것*
 
 ## Lastly...
 
