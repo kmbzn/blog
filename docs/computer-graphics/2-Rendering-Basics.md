@@ -173,7 +173,7 @@ for each pixel in image(plane) :
 
 - **최근 변화된 흐름**
   - 최초의 실시간 ray tracing 데모 “Reflections”가 **2018년 3월에 발표**  
-  - [https://youtu.be/JMtsYoYoCt3s](https://youtu.be/JMtsYoYoCt3s)
+  - [youtu.be/lMSuGoYcT3s](https://youtu.be/lMSuGoYcT3s)
 
 ## In This Course,
 
