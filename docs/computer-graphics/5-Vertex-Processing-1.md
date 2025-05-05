@@ -124,7 +124,7 @@ Object space → View space → Clip space → Screen space
   - 최종 위치 $\mathbf{p}_s$로 변환됨
 
   $$
-  \mathbf{p}_s = \mathbf{T}_{\mathbf{vp}} \mathbf{P} \mathbf{V} \mathbf{M} \mathbf{p}_o
+  \mathbf{p}_s = \mathbf{T_{vp}PVMp_o}
   $$
 
 ## Modeling Transformation
@@ -226,7 +226,7 @@ Object space → View space → Clip space → Screen space
 - Look-at point를 바라보는 방향을 $\mathbf{w}$축으로 정의한다.
 
   $$
-  \mathbf{w} = \frac{\mathbf{P}_{\text{eye}} - \mathbf{P}_{\text{ref}}}{\left\| \mathbf{P}_{\text{eye}} - \mathbf{P}_{\text{ref}} \right\|}
+  \mathbf{w} = \frac{\mathbf{P}_{\text{eye}} - \mathbf{P}_{\text{ref}}}{|| \mathbf{P}_{\text{eye}} - \mathbf{P}_{\text{ref}} ||}
   $$
 
 ## Getting "u" axis vector
@@ -234,7 +234,7 @@ Object space → View space → Clip space → Screen space
 - up 방향 벡터와 $\mathbf{w}$ 벡터의 외적을 통해 $\mathbf{u}$ 축을 계산한다.
 
   $$
-  \mathbf{u} = \frac{\mathbf{V}_{\text{up}} \times \mathbf{w}}{\left\| \mathbf{V}_{\text{up}} \times \mathbf{w} \right\|}
+  \mathbf{u} = \frac{\mathbf{V}_{\text{up}} \times \mathbf{w}}{|| \mathbf{V}_{\text{up}} \times \mathbf{w} ||}
   $$
 
 ## Getting "v" axis vector
@@ -311,8 +311,7 @@ Object space → View space → Clip space → Screen space
   \begin{bmatrix}
   \mathbf{R} & \mathbf{t} \\
   \mathbf{0} & 1
-  \end{bmatrix}^{-1}
-  =
+  \end{bmatrix}^{-1} =
   \begin{bmatrix}
   \mathbf{R}^\top & -\mathbf{R}^\top \mathbf{t} \\
   \mathbf{0} & 1
@@ -327,7 +326,7 @@ Object space → View space → Clip space → Screen space
   $$
   \mathbf{T} =
   \begin{bmatrix}
-  \mathbf{R} & \mathbf{t} \\\\\
+  \mathbf{R} & \mathbf{t} \\\\
   \mathbf{0} & 1
   \end{bmatrix}
   \quad \Rightarrow \quad
@@ -345,8 +344,7 @@ Object space → View space → Clip space → Screen space
 - $\mathbf{V}$는 다음과 같이 명시적으로 구성된다:
 
   $$
-  \mathbf{V} =
-  \begin{bmatrix}
+  \mathbf{V} = \begin{bmatrix}
   u_x & v_x & w_x & -\mathbf{u} \cdot \mathbf{P}_{\text{eye}} \\\\
   u_y & v_y & w_y & -\mathbf{v} \cdot \mathbf{P}_{\text{eye}} \\\\
   u_z & v_z & w_z & -\mathbf{w} \cdot \mathbf{P}_{\text{eye}} \\\\
