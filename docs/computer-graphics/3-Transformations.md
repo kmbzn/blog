@@ -234,14 +234,14 @@ $$
 - **Linear transformation**
   - Scaling, Rotation, Reflection, Shearing
   - 행렬 곱셈으로 표현 가능  
-  $$ T(\mathbf{v}) = M\mathbf{v} $$
+  $$ T(\mathbf{v}) = \mathbf{Mv} $$
 - **Translation**
   - 선형 변환이 아님  
   - 벡터 덧셈으로 표현됨  
   $$ T(\mathbf{v}) = \mathbf{v} + \mathbf{u} $$
 - **Affine transformation**
   - 선형 변환과 translation을 결합한 형태  
-  $$ T(\mathbf{v}) = M\mathbf{v} + \mathbf{u} $$
+  $$ T(\mathbf{v}) = \mathbf{Mv} + \mathbf{u} $$
 
 ## Rigid Transformations
 
