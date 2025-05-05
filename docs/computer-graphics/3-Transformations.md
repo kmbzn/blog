@@ -339,7 +339,7 @@ $$
 ## Projective Transformations
 
 - 직선을 보존함
-![transformations](https://kmbzn.com/images/transformations.jpg)  
+![transformations](https://kmbzn.com/images/transformations.png)  
 
 ## Composition of Transformations
 
