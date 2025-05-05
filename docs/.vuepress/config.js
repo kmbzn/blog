@@ -1,6 +1,8 @@
 const { defaultTheme } = require('vuepress')
 
 module.exports = {
+
+
   description: 'Summarizing key concepts from CS lectures.',
   email: 'kmbzn24@gmail.com',
   base: '/',
@@ -40,6 +42,7 @@ module.exports = {
     }]
   ],
   themeConfig: {
+    search: false,
     logo: '/images/kmbzn.png',
     sidebar: [
       {
@@ -63,3 +66,5 @@ module.exports = {
     lastUpdated: false
   }
 }
+
+

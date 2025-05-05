@@ -53,7 +53,9 @@
 If you'd like to create your own blog based on this one:
 
 1. Go to the repository: [github.com/kmbzn/blog](https://github.com/kmbzn/blog)
+
 2. Click the **Fork** button at the top-right of the page.
+
 3. After forking, clone it to your local machine:
 
   ```sh
@@ -62,7 +64,9 @@ If you'd like to create your own blog based on this one:
   ```
 
 4. Open the folder in your code editor (e.g., vscode).
+
 5. Customize the content under `docs/` and `.vuepress/` as you like.
+
 6. Deploy it via GitHub Pages or your preferred static hosting.
 
 > This blog uses [VuePress](https://vuepress.vuejs.org/) for static site generation. Make sure you have Node.js installed.

@@ -1,17 +1,6 @@
 # 7 - Hierarchical Modeling, Mesh  
 
-## Next Class Announcement
-
-- Hanyang University 학생들의 예비군 훈련 일정(4월 28~30)에 따라
-- 이 수업과 시간은 겹치지 않지만, 수강생 간의 공정성을 위해
-
-- 다음 주 강의 및 실습은 **녹화 영상으로 제공**됨 (LMS 업로드 예정)
-  - 강의 및 실습에 질문 있으면 LMS Q&A 게시판 이용
-
-- **TA의 실습 세션도 없음**
-  - 과제 관련 질문도 LMS Q&A 게시판을 통해 문의
-
-## (Updated) Midterm Exam Announcement
+## Midterm Exam Announcement
 
 - 일시: 5월 7일 (수) 오후 6:30 \~ 7:30  
 - 장소: 추후 공지  

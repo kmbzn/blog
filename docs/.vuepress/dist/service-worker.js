@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "e74e5c1a9ad3f8adc0723ee203769c3c"
+    "revision": "d480800639f45d4bdab2a12edc6f0966"
   },
   {
-    "url": "assets/css/0.styles.89bd505f.css",
-    "revision": "e07a3b6fc02b960bd34a77029170c90d"
+    "url": "assets/css/0.styles.357a6061.css",
+    "revision": "75322342d78491080d93d019b38e77da"
   },
   {
     "url": "assets/img/search.83621669.svg",
@@ -86,8 +86,8 @@ self.__precacheManifest = [
     "revision": "4be22105727f7459bcccebd17a323ce1"
   },
   {
-    "url": "assets/js/20.1bb4a017.js",
-    "revision": "1bb388568c0ecb528c70e9809a2c86dc"
+    "url": "assets/js/20.9f752867.js",
+    "revision": "7299c7d273c099aa99c2fa5b9e5e4f9e"
   },
   {
     "url": "assets/js/21.85cd1bb2.js",
@@ -110,44 +110,44 @@ self.__precacheManifest = [
     "revision": "3e4f77bd92ef72dcf9f62f643bdc18f1"
   },
   {
-    "url": "assets/js/26.9253c6d9.js",
-    "revision": "0649004cdcdf03deeb8aaa25c2e5f671"
+    "url": "assets/js/26.aee70adc.js",
+    "revision": "a5c6792a57387fd37f51c20d94412749"
   },
   {
-    "url": "assets/js/27.12370f35.js",
-    "revision": "ce85c8a5bf2e67ca3a313b0ddde093d0"
+    "url": "assets/js/27.81d367b1.js",
+    "revision": "bc11c2b1dadeb81807142a8de6979eae"
   },
   {
-    "url": "assets/js/28.04d83615.js",
-    "revision": "259f4a607d15dc8718427bbd62df8480"
+    "url": "assets/js/28.de6125f3.js",
+    "revision": "c64195c004f7a03854dfca8ad99c6e59"
   },
   {
-    "url": "assets/js/29.6a8bd8f9.js",
-    "revision": "dd9a1bbeec7db7e54c20a6eee1d5a0d1"
+    "url": "assets/js/29.4d7b2591.js",
+    "revision": "4eb1daf67d0334a649ade46d30dfab83"
   },
   {
     "url": "assets/js/3.7e2f5075.js",
     "revision": "a308329742c283fe403e9b4c78506e9e"
   },
   {
-    "url": "assets/js/30.96458012.js",
-    "revision": "f19d0f7ee28524464b2c78d382ba7574"
+    "url": "assets/js/30.aceee2fb.js",
+    "revision": "7e6c72cea097730d1c73ade1fa3942fd"
   },
   {
-    "url": "assets/js/31.e4ff9fc2.js",
-    "revision": "64a5034773e6bd69e35217a67524043c"
+    "url": "assets/js/31.fea3010b.js",
+    "revision": "543781f3be88ca339d3568f24c6fbec2"
   },
   {
-    "url": "assets/js/32.7927ebe4.js",
-    "revision": "5a53f7c6a544433df1e6deeee8a1063a"
+    "url": "assets/js/32.05970350.js",
+    "revision": "ea9e0f4ee5838ba13a4e248ab1e37fd3"
   },
   {
-    "url": "assets/js/33.2f8007c2.js",
-    "revision": "f5bce4ac6b5ddc5f1e0051ee02523c30"
+    "url": "assets/js/33.cb063db1.js",
+    "revision": "c65ca7bd2456e5f5a7f6bbcef687dadc"
   },
   {
-    "url": "assets/js/34.873a7ee0.js",
-    "revision": "ac25356d02644e582ceeaa34f78c1038"
+    "url": "assets/js/34.f4137101.js",
+    "revision": "85d081cb9b0034d83ef671f1f1601253"
   },
   {
     "url": "assets/js/35.646e59d5.js",
@@ -170,8 +170,8 @@ self.__precacheManifest = [
     "revision": "c212f4703f1ae765e0e560d4417387ca"
   },
   {
-    "url": "assets/js/app.627c7db0.js",
-    "revision": "6a580a3f409901fa360fe023209c705b"
+    "url": "assets/js/app.4280e306.js",
+    "revision": "faea3a216ccc87cfbb4a35fe7736f24c"
   },
   {
     "url": "assets/js/vendors~docsearch.663d6e13.js",
@@ -179,35 +179,35 @@ self.__precacheManifest = [
   },
   {
     "url": "computer-graphics/1-Course-Intro.html",
-    "revision": "2bb92bb69b1f1b9786003ab664c3e7f5"
+    "revision": "328698ab25ea75d12bed95f60349e5be"
   },
   {
     "url": "computer-graphics/2-Rendering-Basics.html",
-    "revision": "c3662a6e4e941283bab59166566623cc"
+    "revision": "c543c2fd267442e9eab661dc0de09c26"
   },
   {
     "url": "computer-graphics/3-Transformations.html",
-    "revision": "4711e316e349e623a9fcf6be90ef5a09"
+    "revision": "ddf930b26fec6b65574b6035d054d6fe"
   },
   {
     "url": "computer-graphics/4-Affine-Space-Frame_Matrix.html",
-    "revision": "b70ed04dbf5de644e731f2e3708b12fb"
+    "revision": "004a60c941bfbc722543b121272b8a7c"
   },
   {
     "url": "computer-graphics/5-Vertex-Processing-1.html",
-    "revision": "6c45e2e986d5041f7e50c68c6f90d25f"
+    "revision": "3bf07e7c40b61bd27037664cbb404255"
   },
   {
     "url": "computer-graphics/6-Vertex-Processing-2.html",
-    "revision": "04fdc991d0e0a59a2780a0ec12bebaae"
+    "revision": "1ab136209414b057335bc803ec4307c6"
   },
   {
     "url": "computer-graphics/7-Hierachical-Modeling-Mesh.html",
-    "revision": "a1b3de8b4307ff3317f14fd00f0315cd"
+    "revision": "832b823078cba758967d43508b52b459"
   },
   {
     "url": "computer-graphics/8-Lighting.html",
-    "revision": "8fb903bbbfbec994f3013db2826d3639"
+    "revision": "cb4001ef9fa09f38135f210de1f6ee21"
   },
   {
     "url": "images/android-chrome-192x192.png",
@@ -250,8 +250,12 @@ self.__precacheManifest = [
     "revision": "b17c38360752244f439bb08d4e8e7f68"
   },
   {
+    "url": "images/transformations.png",
+    "revision": "fe67524f81ac1a6c029dbb414e622bd9"
+  },
+  {
     "url": "index.html",
-    "revision": "b276e52742179a9793034653c2fcbc88"
+    "revision": "a0b984f03488bcbf7485127b7f3ad35f"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
