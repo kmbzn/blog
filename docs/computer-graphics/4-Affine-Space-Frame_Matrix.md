@@ -203,8 +203,7 @@ $$
 \begin{bmatrix}
 \mathbf{p} \\\\
 1
-\end{bmatrix}
-\\\\=
+\end{bmatrix} =
 \begin{bmatrix}
 \mathbf{M} \mathbf{p} + \mathbf{t} \\\\
 1
@@ -220,8 +219,7 @@ $$
 \begin{bmatrix}
 \mathbf{v} \\\\
 0
-\end{bmatrix}
-\\\\=
+\end{bmatrix} =
 \begin{bmatrix}
 \mathbf{M} \mathbf{v} \\\\
 0
@@ -287,39 +285,48 @@ $$
 
 - **World frame**은 보통 다음으로 표현됨:
   - 표준 축 벡터  
-    - $\hat{\mathbf{e}}_x = \begin{bmatrix}1 \\\\ 0 \\\\ 0\end{bmatrix}$  
-    - $\hat{\mathbf{e}}_y = \begin{bmatrix}0 \\\\ 1 \\\\ 0\end{bmatrix}$  
-    - $\hat{\mathbf{e}}_z = \begin{bmatrix}0 \\\\ 0 \\\\ 1\end{bmatrix}$  
-  - 원점: $\mathbf{0}= \begin{bmatrix}0 \\\\ 0 \\\\ 0\end{bmatrix}$
+    $$
+    \hat{\mathbf{e}}_x = \begin{bmatrix}1 \\\\ 0 \\\\ 0\end{bmatrix}~
+    \hat{\mathbf{e}}_y = \begin{bmatrix}0 \\\\ 1 \\\\ 0\end{bmatrix}~
+    \hat{\mathbf{e}}_z = \begin{bmatrix}0 \\\\ 0 \\\\ 1\end{bmatrix}
+    $$
+  - 원점  
+    $$
+    \mathbf{0}= \begin{bmatrix}0 \\\\ 0 \\\\ 0\end{bmatrix}
+    $$
 
 ## Let’s Transform a "World Frame"
 
 - $\mathbf{M}$을 **world frame에 곱하면**, 각 축 벡터 및 원점이 변환됨:
 
-$$
-\text{x-axis:} \quad \mathbf{M} \begin{bmatrix}1 \\\\ 0 \\\\ 0 \\\\ 0\end{bmatrix} \\\\= \text{첫 번째 column}
-$$
+$
+\text{x-axis:} \quad \mathbf{M} \begin{bmatrix}1 \\\\ 0 \\\\ 0 \\\\ 0\end{bmatrix}
+$
+: 첫 번째 column
 
-$$
-\text{y-axis:} \quad \mathbf{M} \begin{bmatrix}0 \\\\ 1 \\\\ 0 \\\\ 0\end{bmatrix} \\\\= \text{두 번째 column}
-$$
+$
+\text{y-axis:} \quad \mathbf{M} \begin{bmatrix}0 \\\\ 1 \\\\ 0 \\\\ 0\end{bmatrix}
+$
+: 두 번째 column
 
-$$
-\text{z-axis:} \quad \mathbf{M} \begin{bmatrix}0 \\\\ 0 \\\\ 1 \\\\ 0\end{bmatrix} \\\\= \text{세 번째 column}
-$$
+$
+\text{z-axis:} \quad \mathbf{M} \begin{bmatrix}0 \\\\ 0 \\\\ 1 \\\\ 0\end{bmatrix}
+$
+: 세 번째 column
 
-$$
-\text{origin:} \quad \mathbf{M} \begin{bmatrix}0 \\\\ 0 \\\\ 0 \\\\ 1\end{bmatrix} \\\\= \text{네 번째 column}
-$$
+$
+\text{origin:} \quad \mathbf{M} \begin{bmatrix}0 \\\\ 0 \\\\ 0 \\\\ 1\end{bmatrix}
+$
+: 네 번째 column
 
 ## 2) Affine Transformation Matrix Defines an Affine Frame w.r.t. World Frame
 
-- 행렬 $\mathbf{M}$은 **기준 프레임 {0} 기준으로 표현된 body frame {1}을 정의**
+- 행렬 $\mathbf{M}$은 **기준 프레임 $\\{0\\}$ 기준으로 표현된 body frame $\\{1\\}$을 정의**
 - $\mathbf{M}$의 각 column은 다음을 나타냄:
   - 앞의 3개 column: 축 벡터
   - 마지막 column: 원점 위치
 
-→ $\mathbf{M}$은 **body frame {1}을 world frame {0} 기준으로 표현**한 것
+→ $\mathbf{M}$은 **body frame $\\{1\\}$을 world frame $\\{0\\}$ 기준으로 표현**한 것
 
 ## Examples
 
@@ -366,25 +373,25 @@ $$
 ## {0} to {1}
 
 - $\mathbf{M}_1$은 다음을 수행:
-  1) 프레임 $\\{0\\}$ 기준에서 geometry를 변환  
-  2) 프레임 $\\{0\\}$ 기준에서 프레임 $\\{1\\}$을 정의  
-  3) 프레임 $\\{1\\}$ 기준의 점을 $\\{0\\}$ 기준으로 표현  
+  1. 프레임 $\\{0\\}$ 기준에서 geometry를 변환  
+  1. 프레임 $\\{0\\}$ 기준에서 프레임 $\\{1\\}$을 정의  
+  1. 프레임 $\\{1\\}$ 기준의 점을 $\\{0\\}$ 기준으로 표현  
      $$ \mathbf{p}^{\\{0\\}} = \mathbf{M}_1 \cdot \mathbf{p}^{\\{1\\}} $$
 
 ## {1} to {2}
 
 - $\mathbf{M}_2$는 다음을 수행:
-  1) 프레임 $\\{1\\}$ 기준에서 geometry를 변환  
-  2) 프레임 $\\{1\\}$ 기준에서 프레임 를 정의  
-  3) 프레임 $\\{2\\}$ 기준의 점을 $\\{1\\}$ 기준으로 표현  
+  1. 프레임 $\\{1\\}$ 기준에서 geometry를 변환  
+  1. 프레임 $\\{1\\}$ 기준에서 프레임 를 정의  
+  1. 프레임 $\\{2\\}$ 기준의 점을 $\\{1\\}$ 기준으로 표현  
      $$ \mathbf{p}^{\\{1\\}} = \mathbf{M}_2 \cdot \mathbf{p}^{\\{2\\}} $$
 
 ## {0} to {2}
 
 - $\mathbf{M}_1 \mathbf{M}_2$는 다음을 수행:
-  1) 프레임 $\\{0\\}$ 기준에서 geometry를 변환  
-  2) 프레임 $\\{0\\}$ 기준에서 프레임 $\\{2\\}$를 정의  
-  3) 프레임 $\\{2\\}$ 기준의 점을 $\\{0\\}$ 기준으로 표현  
+  1. 프레임 $\\{0\\}$ 기준에서 geometry를 변환  
+  1. 프레임 $\\{0\\}$ 기준에서 프레임 $\\{2\\}$를 정의  
+  1. 프레임 $\\{2\\}$ 기준의 점을 $\\{0\\}$ 기준으로 표현  
      $$ \mathbf{p}^{\\{0\\}} = \mathbf{M}_1 \cdot \mathbf{M}_2 \cdot \mathbf{p}^{\\{2\\}} $$
 
 ## Revisit: Order Matters!
@@ -401,7 +408,7 @@ $$
 - → **행렬의 곱셈 순서는 매우 중요함!**  
   - 결합법칙은 성립하지만 교환법칙은 성립하지 않음: $AB \ne BA$
 
-## Interpretation of Composite Transformations 복합 변환의 해석
+## Composite(복합) Transformations의 Interpretation(해석)
 
 - 예시 transformation:  
   $$ \mathbf{M} = \mathbf{T}(x,~3) \cdot \mathbf{R}(-90^\circ) $$
@@ -434,8 +441,8 @@ $$
 
 → **Right-to-Left 순서**
 
-1) $\mathbf{M}_2$를 **world frame 기준**으로 적용하여 $\mathbf{p}$를 변환  
-2) 그 결과에 $\mathbf{M}_1$을 다시 **world frame 기준**으로 적용
+1. $\mathbf{M}_2$를 **world frame 기준**으로 적용하여 $\mathbf{p}$를 변환  
+2. 그 결과에 $\mathbf{M}_1$을 다시 **world frame 기준**으로 적용
 
 → 전체 변환은 $\mathbf{M}_1 \mathbf{M}_2$
 
@@ -448,18 +455,18 @@ $$
 
 → **Left-to-Right 순서**
 
-1) $\mathbf{p}$는 body frame $\\{1\\}$ 기준에서 표현되어 있음  
-2) $\mathbf{M}_1$은 **body frame $\\{1\\}$을 world frame 기준으로 업데이트**함  
-3) $\mathbf{M}_2$는 이어서 **body frame $\\{2\\}$로 업데이트**함  
-4) 결과적으로 $\mathbf{p}$는 body frame $\\{2\\}$ 기준에서 표현됨
+1. $\mathbf{p}$는 body frame $\\{1\\}$ 기준에서 표현되어 있음  
+2. $\mathbf{M}_1$은 **body frame $\\{1\\}$을 world frame 기준으로 업데이트**함  
+3. $\mathbf{M}_2$는 이어서 **body frame $\\{2\\}$로 업데이트**함  
+4. 결과적으로 $\mathbf{p}$는 body frame $\\{2\\}$ 기준에서 표현됨
 
 → 전체 변환은 여전히 $\mathbf{M}_1 \mathbf{M}_2$
 
 ## 또 다른 유용한 해석법
 
-1) $\mathbf{M}_1$: world frame 기준으로 적용하여 **body frame을 $\mathbf{M}_1$으로 업데이트**  
-2) $\mathbf{M}_2$: 다시 world frame 기준으로 적용하여 **body frame을 $\mathbf{M}_1 \mathbf{M}_2$로 업데이트**  
-3) $\mathbf{p}$를 **새로운 body frame $\mathbf{M}_1 \mathbf{M}_2$ 기준으로** 위치시킴
+1. $\mathbf{M}_1$: world frame 기준으로 적용하여 **body frame을 $\mathbf{M}_1$으로 업데이트**  
+2. $\mathbf{M}_2$: 다시 world frame 기준으로 적용하여 **body frame을 $\mathbf{M}_1 \mathbf{M}_2$로 업데이트**  
+3. $\mathbf{p}$를 **새로운 body frame $\mathbf{M}_1 \mathbf{M}_2$ 기준으로** 위치시킴
 
 
 ## [Demo] L-to-R & R-to-L Interpretation
