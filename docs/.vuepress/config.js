@@ -5,6 +5,22 @@ module.exports = {
   email: 'kmbzn24@gmail.com',
   base: '/',
   head: [
+    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js' }],
+    ['script', {}, `
+      if (typeof window !== 'undefined') {
+        window.addEventListener("DOMContentLoaded", function () {
+          renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+            ],
+            throwOnError: false
+          });
+        });
+      }
+    `],
     ['meta', { property: 'og:description', content: 'by kmbzn' }],
     ['meta', { property: 'og:image', content: 'https://kmbzn.com/images/og-home.png' }],
     ['link', { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' }],
@@ -32,7 +48,7 @@ module.exports = {
         children: [
           ['/computer-graphics/1-Course-Intro', '1-Course-Intro'],
           ['/computer-graphics/2-Rendering-Basics', '2-Rendering-Basics'],
-          ['/computer-graphics/3-Transformations-v2', '3-Transformations-v2'],
+          ['/computer-graphics/3-Transformations', '3-Transformations'],
           ['/computer-graphics/4-Affine-Space-Frame_Matrix', '4-Affine-Space-Frame_Matrix'],
           ['/computer-graphics/5-Vertex-Processing-1', '5-Vertex-Processing-1'],
           ['/computer-graphics/6-Vertex-Processing-2', '6-Vertex-Processing-2'],
