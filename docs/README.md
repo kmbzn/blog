@@ -19,11 +19,11 @@
 | University   | Hanyang Univ. (Class of 2021)                                        |
 | Major        | Dept. of Computer Science                                            |
 | High School  | Joongdong High. 112th Graduate                                       |
-| Interests    | Computer Graphics, Operating Systems, Crypto, Linux                  |
+| Interests    | Computer Science, Technologies, Web, Crypto, Linux, Watches          |
 
 ---
 
-## 📚 Blog Topics
+## 📚 Topics
 
 다음과 같은 분야에 대한 내용을 다루려고 합니다:
 

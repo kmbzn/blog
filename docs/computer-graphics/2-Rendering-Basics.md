@@ -1,7 +1,5 @@
 # 2 - Rendering Basics
 
-## Summary of Course Intro
-
 ## Outline
 
 - Rendering의 기본 개념
