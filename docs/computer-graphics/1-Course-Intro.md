@@ -5,18 +5,11 @@
 - Instructor: **Yoonsang Lee**
   - yoonasanglee@hanyang.ac.kr
 
-- Teaching Assistants:
-  - Eunho Jung
-  - Hank Nam
-  - Bokyeong Jang
-  - Chanwoo Baek
-  - 이메일 주소는 [여기](https://cg.hanyang.ac.kr/people.html)서 확인 가능
-
 - Course Homepage  
   - LMS 강의 홈페이지: portal.hanyang.ac.kr 또는 learning.hanyang.ac.kr  
   - 슬라이드는 Lecture Contents(강의자료 탭)에 업로드됨  
     - 보통 강의 직전에 업로드되므로, 강의 시작 시 미리 다운로드할 것  
-  - 작년 슬라이드를 참고하고 싶다면 [다음 링크](https://cgvity.github.io/course/2023-spring-cg.html) 사용:  
+  - 작년 슬라이드를 참고하고 싶다면 [다음 링크](https://cgrhyu.github.io/courses/2023-spring-cg.html) 사용:  
 
 ## What is Computer Graphics?
 
@@ -78,23 +71,23 @@
 
 ## Schedule (subject to change)
 
-| Week | Topic                                      | Thu     | Mon     | TA                  |
-|------|--------------------------------------------|---------|---------|---------------------|
-| 1    | 1 - Course Intro / 1 - Lab - Env. Setting  | 3/6     |         | 정은호, 남한규      |
-| 2    | 2 - Rendering Basics / 2 - Lab - Hello Triangle! | 3/13    |         | 정은호, 남한규      |
-| 3    | 3 - Transformations / 3 - Lab - Sending Data to Shaders | 3/20 |         | 정은호, 장보경      |
-| 4    | 4 - Affine Space / Frame / Matrix / 4 - Lab | 3/27    |         | 정은호, 백찬우      |
-| 5    | 5 - Vertex Processing 1 / 5 - Lab           | 4/3     |         | 장보경, 백찬우      |
-| 6    | 6 - Vertex Processing 2 / 6 - Lab           | 4/10    |         | 정은호, 백찬우      |
-| 7    | 7 - Hierarchical Modeling, Mesh / 7 - Lab   | 4/17    |         | 정은호, 남한규      |
-| 8    | 8 - Lighting / 8 - Lab                      | 4/24    |         | 장보경, 백찬우      |
-| 9    | Midterm Exam                                | 5/1     |         |                     |
-| 10   | 9 - Orientation & Rotation / 9 - Lab        | 5/8     |         | 장보경, 남한규      |
-| 11   | 10 - Character Animation / 10 - Lab         | 5/15    |         | 정은호, 남한규      |
-| 12   | 11 - Curves / 11 - Lab                      | 5/22    |         | 장보경, 남한규      |
-| 13   | 12 - More Lighting, Texture / 12 - Lab      | 5/29    |         | 정은호, 백찬우      |
-| 14   | 13 - Scan Conversion, Visibility / 13 - Lab | 6/5     |         | 정은호, 남한규      |
-| 15   | Final Exam                                  | 6/18    |         |                     |
+| Week | Topic                                      | Date    |
+|------|--------------------------------------------|---------|
+| 1    | 1 - Course Intro / 1 - Lab - Env. Setting  | 3/6     |
+| 2    | 2 - Rendering Basics / 2 - Lab - Hello Triangle! | 3/13    |
+| 3    | 3 - Transformations / 3 - Lab - Sending Data to Shaders | 3/20 |
+| 4    | 4 - Affine Space / Frame / Matrix / 4 - Lab | 3/27    |
+| 5    | 5 - Vertex Processing 1 / 5 - Lab           | 4/3     |
+| 6    | 6 - Vertex Processing 2 / 6 - Lab           | 4/10    |
+| 7    | 7 - Hierarchical Modeling, Mesh / 7 - Lab   | 4/17    |
+| 8    | 8 - Lighting / 8 - Lab                      | 4/24    |
+| 9    | Midterm Exam                                | 5/1     |
+| 10   | 9 - Orientation & Rotation / 9 - Lab        | 5/8     |
+| 11   | 10 - Character Animation / 10 - Lab         | 5/15    |
+| 12   | 11 - Curves / 11 - Lab                      | 5/22    |
+| 13   | 12 - More Lighting, Texture / 12 - Lab      | 5/29    |
+| 14   | 13 - Scan Conversion, Visibility / 13 - Lab | 6/5     |
+| 15   | Final Exam                                  | 6/18    |
 
 ## Lectures & Labs
 
