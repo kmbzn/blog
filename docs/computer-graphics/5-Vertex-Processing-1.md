@@ -85,50 +85,34 @@
   - 이동(translate), 회전(rotate), 크기 조절(scale) 등  
   - 이전 강의에서 다룬 모든 affine 변환 포함
 
----
-
 **Modeling transformation**  
 - 객체 좌표계 (object space) → world 좌표계로 변환  
 - 이전 강의에서 배운 affine transformation을 적용함
-
----
 
 **Placing a “camera”**  
 - world 좌표계 상에서 카메라를 배치함  
 - view space (또는 camera space) 정의됨
 
----
-
 **Viewing transformation**  
 - world space → camera space로 변환  
 - 즉, world 기준 장면을 카메라 기준으로 재배열
 
----
-
 **Selecting its “lens”**  
 - 투영 방식을 정의함 (예: perspective, orthographic 등)  
 - view space → **Clip space / NDC (normalized device coordinate) space**
-
----
 
 **Projection transformation**  
 - 시야각(FOV), 종횡비, near/far plane 등을 고려하여  
   3D 공간을 **정규화된 장치 좌표계(NDC)** 로 변환  
 - 좌표 범위: (-1, -1, -1) ~ (1, 1, 1)
 
----
-
 **Displaying on a “cinema screen”**  
 - NDC 공간을 이미지 공간으로 변환  
 - 즉, 픽셀 좌표계 상에 화면 출력
 
----
-
 **Viewport transformation**  
 - NDC 좌표를 실제 화면 해상도에 맞게 스케일 조정  
 - 좌표계를 정규화 공간 → 스크린 공간으로 변환
-
----
 
 **Transformation Pipeline 전체 요약**
 
@@ -141,12 +125,8 @@ Object space → View space → Clip space → Screen space
 
 → 모든 과정은 **행렬 곱(Matrix Multiplication)** 으로 구성됨
 
----
-
 - Modeling, Viewing, Projection, Viewport 변환은  
   **4x4 행렬 곱셈**으로 처리됨
-
----
 
 **MVP Matrix 적용**  
 - 하나의 점 $begin:math:text$ \\mathbf{p}_o $end:math:text$가  
@@ -161,10 +141,6 @@ Object space → View space → Clip space → Screen space
   p_s = T_vp * P * V * M * p_o
   ```
 
----
-
-# Modeling Transformation
-
 ## Modeling Transformation
 
 - object space에서 world space로의 변환  
@@ -172,15 +148,11 @@ Object space → View space → Clip space → Screen space
 - 이때 M은 affine transformation들의 조합  
 - 예: 이동, 회전, 스케일 등
 
----
-
 ## Recall: Directions of the "arrow"
 
 - $begin:math:text$ \\mathbf{p}_w = M \\mathbf{p}^{(1)} $end:math:text$  
 - 1번째 의미: geometry 변환 방향  
 - 3번째 의미: frame이 바뀌는 관점에서 → 방향 반대가 되는 것처럼 보일 수 있음
-
----
 
 ## Modeling Transformation
 
@@ -190,19 +162,13 @@ Object space → View space → Clip space → Screen space
 
 - 이 행렬 $begin:math:text$ M $end:math:text$은 지금까지 배운 affine 변환(이동, 회전, 스케일 등)의 조합
 
----
-
 **예시: 다중 부품의 modeling**
 
 - 바퀴, 캐빈, 컨테이너 각각의 object frame에서  
   - modeling matrix $begin:math:text$ M_{wheel}, M_{cab}, M_{container} $end:math:text$를 적용  
   - 최종적으로 world frame 상의 전체 트럭 위치가 구성됨
 
----
-
 ## Quiz 1
-
-# Viewing Transformation
 
 ## Viewing Transformation
 

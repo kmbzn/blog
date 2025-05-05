@@ -3,12 +3,8 @@
 > *본 blog는 다양한 주제에 대한 저의 **관심과 생각을 정리하고 공유**하는 공간입니다.*  
 > *CS, 테크, 디자인, 금융 등 여러 분야에 걸쳐 자유롭게 기록하고 있습니다.*
 
----
-
 ![Profile Image](https://kmbzn.com/images/profile.jpg)  
 *Hi, I'm Byungjun Kim — welcome to my personal blog...*
-
----
 
 ## 👤 About Me
 
@@ -20,8 +16,6 @@
 | Major        | Dept. of Computer Science                                            |
 | High School  | Joongdong High. 112th Graduate                                       |
 | Interests    | Computer Science, Technologies, Web, Crypto, Linux, Watches          |
-
----
 
 ## 📚 Topics
 
@@ -54,8 +48,6 @@
 
 > 전공 기반의 기술적 탐구부터 시각적 표현과 취향까지, 다양한 주제를 자유롭게 정리하고 공유하는 공간입니다.
 
----
-
 ## 🍴 How to Fork This Blog
 
 If you'd like to create your own blog based on this one:
@@ -75,14 +67,10 @@ If you'd like to create your own blog based on this one:
 
 > This blog uses [VuePress](https://vuepress.vuejs.org/) for static site generation. Make sure you have Node.js installed.
 
----
-
 
 ## 📬 Contact
 
 문의나 피드백은 GitHub Issues 또는 이메일 `kmbzn24@gmail.com`으로 연락주세요.
-
----
 
 ## 📝 License
 

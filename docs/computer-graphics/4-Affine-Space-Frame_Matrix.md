@@ -21,8 +21,6 @@
 - Affine Transformation Matrix  
 - Interpretation of Composite Transformations
 
-# Affine Space - Point vs. Vector
-
 ## Affine Space - Point vs. Vector
 
 - 개념적으로 **point와 vector는 매우 다름**
@@ -484,7 +482,6 @@ p' = M₁M₂p  (pre-multiplication by M₁)
 
 → 전체 변환은 **M₁M₂**
 
----
 
 ```
 p' = M₁M₂p  (post-multiplication by M₁)
