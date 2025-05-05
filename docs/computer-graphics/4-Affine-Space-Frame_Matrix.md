@@ -508,3 +508,5 @@ https://observablehq.com/@esperanc/transformation-demo
 - 다양한 순서로 translation 및 선형 변환 추가 ( '+' 버튼 사용)  
 - 슬라이더를 드래그하여 행렬 값의 변화 및 도형의 변화를 관찰  
 - 합성 변환의 의미를 **L-to-R**, **R-to-L** 순서로 해석해보세요
+
+<home/>

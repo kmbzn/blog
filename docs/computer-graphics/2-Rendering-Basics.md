@@ -171,7 +171,8 @@ for each pixel in image(plane) :
 
 - **최근 변화된 흐름**
   - 최초의 실시간 ray tracing 데모 “Reflections”가 **2018년 3월에 발표**  
-  - [youtu.be/lMSuGoYcT3s](https://youtu.be/lMSuGoYcT3s)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lMSuGoYcT3s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## In This Course,
 
@@ -201,3 +202,5 @@ for each pixel in image(plane) :
 - 이 수업에서는 **ray tracing 또는 learnable scene representation을 다루지 않음**  
   - **실시간 렌더링에서 rasterization은 여전히 중요**  
   - 다룰 시간이 부족함
+
+<home/>
