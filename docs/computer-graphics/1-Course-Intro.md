@@ -8,7 +8,7 @@
   - LMS 강의 홈페이지: portal.hanyang.ac.kr 또는 learning.hanyang.ac.kr  
   - 슬라이드는 Lecture Contents(강의자료 탭)에 업로드됨  
     - 보통 강의 직전에 업로드되므로, 강의 시작 시 미리 다운로드할 것  
-  - 작년 슬라이드를 참고하고 싶다면 [다음 링크](https://cgrhyu.github.io/courses/2023-spring-cg.html) 사용
+  - 작년 슬라이드를 참고하고 싶다면 [링크](https://cgrhyu.github.io/courses/2023-spring-cg.html) 사용
 
 ## What is Computer Graphics?
 
