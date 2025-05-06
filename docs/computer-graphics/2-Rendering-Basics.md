@@ -150,8 +150,13 @@ for each pixel in image(plane) :
   - DirectX Raytracing, Vulkan RT 등의 API
 - **최근 변화된 흐름**
   - 최초의 실시간 ray tracing 데모 “Reflections”가 **2018년 3월에 발표**  
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lMSuGoYcT3s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/lMSuGoYcT3s"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          frameborder="0" allowfullscreen>
+  </iframe>
+</div>
 
 ## In This Course,
 
