@@ -197,7 +197,7 @@ $$
 
 ## [Demo] LookAt Function
 
-- [http://learnwebgl.brown37.net/07_cameras/camera_lookat/camera_lookat.html](http://learnwebgl.brown37.net/07_cameras/camera_lookat/camera_lookat.html)
+- [learnwebgl.brown37.net/07_cameras/camera_lookat/camera_lookat.html](http://learnwebgl.brown37.net/07_cameras/camera_lookat/camera_lookat.html)
 - 슬라이더를 움직이며 eye, center, up 값을 바꿔보면, 3D 장면의 뷰가 어떻게 변하는지 관찰할 수 있다.
 
 ## Defining Camera Frame 1 - "LookAt"
@@ -360,7 +360,7 @@ $$
 
 ## [Demo] Translate & Rotate Camera
 
-- [http://learnwebgl.brown37.net/07_cameras/camera_trunk_axes/camera_trunk_axes.html](http://learnwebgl.brown37.net/07_cameras/camera_trunk_axes/camera_trunk_axes.html)
+- [learnwebgl.brown37.net/07_cameras/camera_trunk_axes/camera_trunk_axes.html](http://learnwebgl.brown37.net/07_cameras/camera_trunk_axes/camera_trunk_axes.html)
 - 슬라이더로 eye 위치를 바꾸거나 축 방향 및 각도를 지정해 회전하는 카메라 움직임을 시각적으로 관찰할 수 있다.
 
 ## Moving Camera vs Moving World

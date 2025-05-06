@@ -133,7 +133,7 @@ $$
 
 ## [Demo] Orthographic Projection
 
-- [http://learnwebgl.brown37.net/08_projections/create_ortho/create_ortho.html](http://learnwebgl.brown37.net/08_projections/create_ortho/create_ortho.html)
+- [learnwebgl.brown37.net/08_projections/create_ortho/create_ortho.html](http://learnwebgl.brown37.net/08_projections/create_ortho/create_ortho.html)
 - 슬라이더를 움직이며 왼쪽(view volume)과 오른쪽(rendered view)을 관찰
 - 왼쪽, 오른쪽, 아래, 위, 가까움, 멀리 위치를 조절 가능
 
@@ -380,12 +380,12 @@ $$
 
 ## [Demo] Perspective Projection - frustum
 
-- [http://learnwebgl.brown37.net/08_projections/create_frustum/create_frustum.html](http://learnwebgl.brown37.net/08_projections/create_frustum/create_frustum.html)
+- [learnwebgl.brown37.net/08_projections/create_frustum/create_frustum.html](http://learnwebgl.brown37.net/08_projections/create_frustum/create_frustum.html)
 - 슬라이더로 left, right, top, near, far 값을 조절하며 변화 확인
 
 ## [Demo] Perspective Projection - perspective
 
-- [http://learnwebgl.brown37.net/08_projections/create_perspective/create_perspective.html](http://learnwebgl.brown37.net/08_projections/create_perspective/create_perspective.html)
+- [learnwebgl.brown37.net/08_projections/create_perspective/create_perspective.html](http://learnwebgl.brown37.net/08_projections/create_perspective/create_perspective.html)
 - 슬라이더를 이용해 `fovy`, `aspect`, `near`, `far` 조절
 - **frustum**과 **perspective** 중 어떤 것이 더 편리한가?
 
