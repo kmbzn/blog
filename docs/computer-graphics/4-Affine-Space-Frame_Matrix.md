@@ -129,7 +129,7 @@ $$
   - 기준점 $\mathbf{o}$
 - 벡터들의 집합 $\{\mathbf{v}_i\}$는 해당 vector space의 **bases**  
 - $\mathbf{o}$는 해당 frame의 **origin**  
-- $N$은 affine space의 **dimension **
+- $N$은 affine space의 **dimension**
 - 임의의 점 $\mathbf{p}$는 다음과 같이 표현됨:
 $$
 \mathbf{p} = \mathbf{o} + c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \dots + c_n \mathbf{v}_n
@@ -470,8 +470,7 @@ $$
 
 
 ## [Demo] L-to-R & R-to-L Interpretation
-
-[https://observablehq.com/@esperanc/transformation-demo](https://observablehq.com/@esperanc/transformation-demo)  
+[observablehq.com/@esperanc/transformation-demo](https://observablehq.com/@esperanc/transformation-demo)  
 - 다양한 순서로 translation 및 선형 변환 추가 ( '+' 버튼 사용)  
 - 슬라이더를 드래그하여 행렬 값의 변화 및 도형의 변화를 관찰  
 - 합성 변환의 의미를 **L-to-R**, **R-to-L** 순서로 해석해보세요

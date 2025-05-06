@@ -2,8 +2,6 @@
 
 ## Course Information
 
-- Instructor: **Yoonsang Lee**
-  - yoonasanglee@hanyang.ac.kr
 - Course Homepage  
   - LMS 강의 홈페이지: portal.hanyang.ac.kr 또는 learning.hanyang.ac.kr  
   - 슬라이드는 Lecture Contents(강의자료 탭)에 업로드됨  
@@ -176,7 +174,7 @@
 
 ## Just Try Asking a Question!
 
-- 접속: https://www.slido.com/  
+- 접속: [slido.com](https://www.slido.com/)  
 - 참여: **#cg-ys**  
 - 로그인 없이 사용 가능
 - **slido page는 북마크하지 말 것**  
@@ -238,7 +236,7 @@
 
 - **Windows / Mac**  
   - “OpenGL Extensions Viewer” 사용  
-    - https://support.esri.com/en/technical-article/000011375
+    - [support.esri.com/en/technical-article/000011375](https://support.esri.com/en/technical-article/000011375)
 - **Ubuntu**  
   - `glxinfo` 사용 (mesa-utils 설치 필요)
     ```bash
@@ -248,7 +246,7 @@
   - 출력 결과에서 **‘core profile’ 버전** 확인
 
 - **Intel 그래픽 지원 여부 확인**  
-  - https://www.intel.com/content/www/us/en/support/articles/000005524/graphics.html  
+  - [intel.com/content/www/us/en/support/articles/000005524/graphics.html](https://www.intel.com/content/www/us/en/support/articles/000005524/graphics.html)  
   - **2011년 이전 출시된 일부 구형 Intel CPU는 OpenGL 3.3을 지원하지 않음**
 
 ## Classroom Etiquette

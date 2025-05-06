@@ -119,13 +119,13 @@ Object space → View space → Clip space → Screen space
   - 모델링 변환: $\mathbf{M}$  
   - 뷰잉 변환: $\mathbf{V}$  
   - 투영 변환: $\mathbf{P}$  
-  - 뷰포트 변환: $\mathbf{T}_{\mathbf{vp}}$  
+  - 뷰포트 변환: $\mathbf{T}\_{\mathbf{vp}}$  
   을 거쳐서  
   - 최종 위치 $\mathbf{p}_s$로 변환됨
 
-  $$
-  \mathbf{p}_s = \mathbf{T_{vp}PVMp_o}
-  $$
+$$
+\mathbf{p}_s=\mathbf{{T}\_{vp} PVMp_o}
+$$
 
 ## Modeling Transformation
 
@@ -154,18 +154,18 @@ Object space → View space → Clip space → Screen space
 **예시: 다중 부품의 modeling**
 
 - 바퀴, 캐빈, 컨테이너 각각의 object frame에서  
-  - modeling matrix $\mathbf{M}_{\text{wheel}},\ \mathbf{M}_{\text{cab}},\ \mathbf{M}_{\text{container}}$를 적용  
+  - modeling matrix $\mathbf{M}\_{\text{wheel}},\ \mathbf{M}\_{\text{cab}},\ \mathbf{M}\_{\text{container}}$를 적용  
   - 최종적으로 world frame 상의 전체 트럭 위치가 구성됨
 
 ## Quiz 1
 
 ## Viewing Transformation
 
-- Viewing transformation은 **world space**에서 **camera space(view space)**로 변환하는 연산이다.
+- Viewing transformation은 **world space**에서 **camera space**(view space)로 변환하는 연산이다.
 - 변환된 결과는 결국 화면상의 2D 이미지(screen space)에 나타난다.
 - 이 과정은 다음과 같은 수식을 따른다:  
   $$
-  \mathbf{p}_\mathbf{v} = \mathbf{V} \mathbf{p}_\mathbf{w}
+  \mathbf{p}\_\mathbf{v} = \mathbf{V} \mathbf{p}\_\mathbf{w}
   $$
 
 ## Recall that...
@@ -218,7 +218,7 @@ Object space → View space → Clip space → Screen space
 - Eye point 자체가 **카메라 좌표계의 원점**이 된다.
 
   $$
-  \text{origin of camera frame} = \mathbf{P}_{\text{eye}}
+  \text{origin of camera frame} = \mathbf{P}\_{\text{eye}}
   $$
 
 ## Getting "w" axis vector
@@ -226,7 +226,7 @@ Object space → View space → Clip space → Screen space
 - Look-at point를 바라보는 방향을 $\mathbf{w}$축으로 정의한다.
 
   $$
-  \mathbf{w} = \frac{\mathbf{P}_{\text{eye}} - \mathbf{P}_{\text{ref}}}{|| \mathbf{P}_{\text{eye}} - \mathbf{P}_{\text{ref}} ||}
+  \mathbf{w} = \frac{\mathbf{P}\_{\text{eye}} - \mathbf{P}\_{\text{ref}}}{|| \mathbf{P}\_{\text{eye}} - \mathbf{P}\_{\text{ref}} ||}
   $$
 
 ## Getting "u" axis vector
@@ -234,7 +234,7 @@ Object space → View space → Clip space → Screen space
 - up 방향 벡터와 $\mathbf{w}$ 벡터의 외적을 통해 $\mathbf{u}$ 축을 계산한다.
 
   $$
-  \mathbf{u} = \frac{\mathbf{V}_{\text{up}} \times \mathbf{w}}{|| \mathbf{V}_{\text{up}} \times \mathbf{w} ||}
+  \mathbf{u} = \frac{\mathbf{V}\_{\text{up}} \times \mathbf{w}}{|| \mathbf{V}\_{\text{up}} \times \mathbf{w} ||}
   $$
 
 ## Getting "v" axis vector
@@ -263,9 +263,9 @@ Object space → View space → Clip space → Screen space
 
   $$
   \begin{bmatrix}
-  x_{1x} & y_{1x} & z_{1x} & p_{1x} \\\\
-  x_{1y} & y_{1y} & z_{1y} & p_{1y} \\\\
-  x_{1z} & y_{1z} & z_{1z} & p_{1z} \\\\
+  x\_{1x} & y\_{1x} & z\_{1x} & p\_{1x} \\\\
+  x\_{1y} & y\_{1y} & z\_{1y} & p\_{1y} \\\\
+  x\_{1z} & y\_{1z} & z\_{1z} & p\_{1z} \\\\
   0 & 0 & 0 & 1
   \end{bmatrix}
   $$
@@ -276,9 +276,9 @@ Object space → View space → Clip space → Screen space
 
   $$
   \begin{bmatrix}
-  u_x & v_x & w_x & P_{\text{eye},x} \\\\
-  u_y & v_y & w_y & P_{\text{eye},y} \\\\
-  u_z & v_z & w_z & P_{\text{eye},z} \\\\
+  u_x & v_x & w_x & P\_{\text{eye},x} \\\\
+  u_y & v_y & w_y & P\_{\text{eye},y} \\\\
+  u_z & v_z & w_z & P\_{\text{eye},z} \\\\
   0   & 0   & 0   & 1
   \end{bmatrix}
   $$
@@ -289,14 +289,14 @@ Object space → View space → Clip space → Screen space
 - 기본적으로, 객체의 body frame에서의 좌표를 world frame으로 변환하는 affine matrix의 **역행렬**이 바로 viewing matrix가 된다.
 - 객체 공간(Object space)을 카메라 공간(Camera space)으로 바꾸면, 어떤 변환 행렬이 필요할까?
 - 뷰 공간(View space) → 월드 공간(World space) 방향으로 변환한다면?
-- 카메라 프레임에서의 축 벡터 $\mathbf{u},\ \mathbf{v},\ \mathbf{w}$와 원점 $\mathbf{P}_{\text{eye}}$를 사용해 변환 행렬을 구성할 수 있다.
+- 카메라 프레임에서의 축 벡터 $\mathbf{u},\ \mathbf{v},\ \mathbf{w}$와 원점 $\mathbf{P}\_{\text{eye}}$를 사용해 변환 행렬을 구성할 수 있다.
 - 이 행렬이 바로 **Rigid transformation matrix**이다.
 
   $$
   \begin{bmatrix}
-  u_x & v_x & w_x & P_{\text{eye},x} \\\\
-  u_y & v_y & w_y & P_{\text{eye},y} \\\\
-  u_z & v_z & w_z & P_{\text{eye},z} \\\\
+  u_x & v_x & w_x & P\_{\text{eye},x} \\\\
+  u_y & v_y & w_y & P\_{\text{eye},y} \\\\
+  u_z & v_z & w_z & P\_{\text{eye},z} \\\\
   0   & 0   & 0   & 1
   \end{bmatrix}
   $$
@@ -309,11 +309,11 @@ Object space → View space → Clip space → Screen space
   $$
   \mathbf{V} =
   \begin{bmatrix}
-  \mathbf{R} & \mathbf{t} \\
+  \mathbf{R} & \mathbf{t} \\\\
   \mathbf{0} & 1
   \end{bmatrix}^{-1} =
   \begin{bmatrix}
-  \mathbf{R}^\top & -\mathbf{R}^\top \mathbf{t} \\
+  \mathbf{R}^\top & -\mathbf{R}^\top \mathbf{t} \\\\
   \mathbf{0} & 1
   \end{bmatrix}
   $$
@@ -345,9 +345,9 @@ Object space → View space → Clip space → Screen space
 
   $$
   \mathbf{V} = \begin{bmatrix}
-  u_x & v_x & w_x & -\mathbf{u} \cdot \mathbf{P}_{\text{eye}} \\\\
-  u_y & v_y & w_y & -\mathbf{v} \cdot \mathbf{P}_{\text{eye}} \\\\
-  u_z & v_z & w_z & -\mathbf{w} \cdot \mathbf{P}_{\text{eye}} \\\\
+  u_x & v_x & w_x & -\mathbf{u} \cdot \mathbf{P}\_{\text{eye}} \\\\
+  u_y & v_y & w_y & -\mathbf{v} \cdot \mathbf{P}\_{\text{eye}} \\\\
+  u_z & v_z & w_z & -\mathbf{w} \cdot \mathbf{P}\_{\text{eye}} \\\\
   0   & 0   & 0   & 1
   \end{bmatrix}
   $$

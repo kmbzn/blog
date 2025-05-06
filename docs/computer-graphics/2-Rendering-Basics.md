@@ -89,7 +89,7 @@ for each primitive in scene :
     - depth test, alpha blending 등 수행
 
 > **fragment**: 픽셀을 구성하기 위한 잠정적인 데이터 단위. 하나의 픽셀에 여러 fragment가 생성될 수 있음.  
-> 예: **MSAA(Multisample Anti-Aliasing)**에서는 하나의 픽셀을 여러 샘플 지점으로 나누어 각각 fragment를 생성하고, 이를 평균 내어 최종 색상을 결정함.
+> 예: **MSAA**(Multisample Anti-Aliasing)에서는 하나의 픽셀을 여러 샘플 지점으로 나누어 각각 fragment를 생성하고, 이를 평균 내어 최종 색상을 결정함.
 
 - 입력: 각 오브젝트 공간의 vertex
 - 처리 순서:  

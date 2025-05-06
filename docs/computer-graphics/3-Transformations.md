@@ -195,7 +195,7 @@ $$
 
 ## [Demo] 2D Linear Transformations
 
-- [https://www.integral-domain.org/lwilliams/Applets/algebra/linearTransformations.php](https://www.integral-domain.org/lwilliams/Applets/algebra/linearTransformations.php)
+- [integral-domain.org/lwilliams/Applets/algebra/linearTransformations.php](https://www.integral-domain.org/lwilliams/Applets/algebra/linearTransformations.php)
 - 행렬 요소의 값을 바꿔보세요  
 - 다양한 변환 버튼을 눌러보세요
 
@@ -324,7 +324,7 @@ $$
 
 ## [Demo] Composition of Linear Transformations
 
-- [https://www.integral-domain.org/lwilliams/Applets/algebra/linearTransformations.php](https://www.integral-domain.org/lwilliams/Applets/algebra/linearTransformations.php)
+- [integral-domain.org/lwilliams/Applets/algebra/linearTransformations.php](https://www.integral-domain.org/lwilliams/Applets/algebra/linearTransformations.php)
 - identity matrix로 초기화 (1 0 0 1 입력)  
 - "Compose Transformations" 버튼 클릭  
 - 두 개의 변환을 서로 다른 순서로 적용해보기
@@ -439,7 +439,7 @@ $$
 
 ## [Demo] Composition of Affine Transformations in Homogeneous Coordinates
 
-- [https://observablehq.com/@esperanc/transformation-demo](https://observablehq.com/@esperanc/transformation-demo)
+- [observablehq.com/@esperanc/transformation-demo](https://observablehq.com/@esperanc/transformation-demo)
 - ‘+’ 버튼으로 다양한 순서의 translation 및 linear transformation 추가
 - 슬라이더로 행렬 값의 변화와 도형 변형 확인
 - 주의: 마지막에 추가된 변환이 **가장 먼저 적용**됨
