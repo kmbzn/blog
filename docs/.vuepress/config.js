@@ -10,7 +10,7 @@ const subjects = [
   ['마이크로프로세서', 'mp'],
   ['데이터사이언스', 'ds'],
   ['컴퓨터보안', 'cs'],
-  ['운영체제', 'os/study'],
+  ['운영체제', 'os'],
   ['데이터베이스', 'db'],
   ['프로그래밍언어론', 'pl'],
   ['소프트웨어공학', 'se'],
@@ -43,6 +43,44 @@ export default defineUserConfig({
     }
   },
   extendsMarkdown(md) {
+    // Notes use triple-dollar display delimiters; KaTeX expects double dollars.
+    md.core.ruler.before('block', 'triple-dollar-math', state => {
+      state.src = state.src.replace(/^\${3}[ \t]*$/gm, () => '$$')
+    })
+    // Group each heading with its following content, independently of heading rank.
+    md.core.ruler.push('print-heading-blocks', state => {
+      const tokens = []
+      const groups = []
+      const closeGroup = () => {
+        const token = new state.Token('print_block_close', 'div', -1)
+        token.block = true
+        tokens.push(token)
+        groups.pop()
+      }
+      for (const token of state.tokens) {
+        while (groups.length && (
+          token.level < groups.at(-1) ||
+          (token.type === 'heading_open' && token.level === groups.at(-1))
+        )) closeGroup()
+        if (token.type === 'heading_open') {
+          const open = new state.Token('print_block_open', 'div', 1)
+          open.block = true
+          open.attrSet('class', 'print-heading-block')
+          tokens.push(open)
+          groups.push(token.level)
+        }
+        tokens.push(token)
+      }
+      while (groups.length) closeGroup()
+      state.tokens = tokens
+    })
+    const renderFence = md.renderer.rules.fence
+    md.renderer.rules.fence = (tokens, index, options, env, self) => {
+      const language = md.utils.unescapeAll(tokens[index].info).trim().split(/\s+/)[0]
+      const code = renderFence(tokens, index, options, env, self)
+      if (!language) return code
+      return `<div class="fenced-code"><span class="code-language">${md.utils.escapeHtml(language)}</span>${code}</div>\n`
+    }
     // Markdown distinguishes indented code from fenced code at the token level.
     md.renderer.rules.code_block = (tokens, index) =>
       `<pre class="indented-code"><code>${md.utils.escapeHtml(tokens[index].content)}</code></pre>\n`

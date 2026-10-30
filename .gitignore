@@ -1,4 +1,18 @@
+# Dependencies and VuePress generated files
 node_modules/
 docs/.vuepress/.cache/
 docs/.vuepress/.temp/
 docs/.vuepress/dist/
+
+# Local environment files (keep shareable examples)
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Logs
+*.log
+
+# Operating system metadata
+.DS_Store
+Thumbs.db

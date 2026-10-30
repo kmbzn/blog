@@ -487,7 +487,7 @@ $
 ```
 3. 세 test 모두 `… ok` / `PASSED` 출력되었음.
 
-![screenshot](../images/9.png)
+![screenshot](./images/9.png)
 
 
 ### 4.5. Program-flow snapshot 기능별 동작 흐름 요약

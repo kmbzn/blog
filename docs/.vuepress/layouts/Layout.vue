@@ -11,8 +11,12 @@ const page = usePageData()
   <div class="notes-layout">
     <aside class="sidebar" aria-label="전체 게시물">
       <nav>
-        <section v-for="section in sections" :key="section.text">
-          <h2>{{ section.text }}</h2>
+        <details
+          v-for="section in sections"
+          :key="section.text"
+          :open="section.text === '마이크로프로세서'"
+        >
+          <summary><h2>{{ section.text }}</h2></summary>
           <ol>
             <li v-for="item in section.children" :key="item.path">
               <RouteLink :to="item.path" :aria-current="path === item.path ? 'page' : undefined">
@@ -20,7 +24,7 @@ const page = usePageData()
               </RouteLink>
             </li>
           </ol>
-        </section>
+        </details>
       </nav>
     </aside>
     <main id="main-content" tabindex="-1">
