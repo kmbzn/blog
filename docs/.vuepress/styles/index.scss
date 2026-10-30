@@ -46,7 +46,7 @@ a:hover { text-decoration-thickness: 2px; }
 .sidebar li { margin: 0.35rem 0; overflow-wrap: anywhere; }
 .sidebar a { display: block; text-decoration: none; }
 .sidebar a:hover { text-decoration: underline; }
-.sidebar a[aria-current='page'] { font-weight: 700; text-decoration: underline; }
+.sidebar a[aria-current='page'] { text-decoration: underline; }
 main {
   min-width: 0;
   width: 100%;
@@ -54,12 +54,15 @@ main {
   margin-inline-start: max(0px, calc((100% - var(--content-width) - var(--sidebar-width)) / 2));
   padding: 2rem 3rem 5rem;
 }
+h1, h2, h3, h4, h5, h6, th, b, strong,
+.sidebar a[aria-current='page'], .hint-container .hint-container-title { font-weight: 500; }
 h1, h2, h3, h4 { line-height: 1.4; scroll-margin-top: 1rem; }
 h1 { font-size: 1.8rem; margin: 0 0 0.7rem; }
 h2 { font-size: 1.4rem; margin: 1.1rem 0 0.25rem; }
 h3 { font-size: 1.15rem; margin: 0.8rem 0 0.2rem; }
 h4, h5, h6 { margin: 0.65rem 0 0.2rem; }
 p, ul, ol { margin-block: 0.3rem; }
+main ul { list-style-type: circle; }
 main :is(h1, h2, h3, h4, h5, h6) + :is(p, ul, ol) { margin-top: 0; }
 main :is(ul, ol) :is(ul, ol) { margin-block: 0.1rem; }
 main li > p { margin-block: 0.15rem; }
