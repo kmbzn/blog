@@ -4,9 +4,9 @@
 
 ### Semantics Models
 
-- **in mode**: caller → callee 방향, 함수 내부에서 읽기만 가능
-- **out mode**: callee → caller 방향, 함수 종료 시 결과 복사
-- **inout mode**: 양방향
+- in mode - caller → callee 방향, 함수 내부에서 읽기만 가능
+- out mode - callee → caller 방향, 함수 종료 시 결과 복사
+- inout mode - 양방향
 
 ### Pass-by-value
 
@@ -18,8 +18,8 @@ int a = 20;
 add(a); // a = 20 그대로
 ```
 
-장점: 빠름 (scalar 기준)
-단점: 크기가 큰 데이터는 복사 비용 증가
+장점 - 빠름 (scalar 기준)
+단점 - 크기가 큰 데이터는 복사 비용 증가
 
 ### Pass-by-result
 
@@ -30,13 +30,13 @@ add(a); // a = 20 그대로
 void Fixer(out int x) { x = 17; }
 ```
 
-문제점 1: 같은 변수를 두 번 out으로 전달하면 마지막에 복사되는 값에 의존
+문제점 1 - 같은 변수를 두 번 out으로 전달하면 마지막에 복사되는 값에 의존
 
 ```csharp
 f.Fixer(out a, out a); // a = 17 또는 35 — 순서에 의존
 ```
 
-문제점 2: 평가 시점 차이
+문제점 2 - 평가 시점 차이
 
 ```csharp
 DoIt(out list[sub], out sub);
@@ -46,7 +46,7 @@ DoIt(out list[sub], out sub);
 
 ### Pass-by-value-result
 
-진입 시 값 복사 + 종료 시 다시 복사 (inout mode). copy-in/copy-out이라고도 함.
+진입 시 값 복사 + 종료 시 다시 복사 (inout mode). copy-in/copy-out이라고도 함
 
 ### Pass-by-reference
 
@@ -58,7 +58,7 @@ int a = 20;
 add(a); // a = 30
 ```
 
-단점: 의도치 않은 변경, alias 생성 위험
+단점 - 의도치 않은 변경, alias 생성 위험
 
 ```c
 fun(total, total); // first와 second가 같은 변수 — alias
@@ -102,16 +102,16 @@ int value = 2, list[5] = {1, 3, 5, 7, 9};
 swap(value, list[value]); // (3)
 ```
 
-- pass-by-value: 변화 없음
-- pass-by-reference: value=5, list={1,3,2,7,9}
-- pass-by-value-result (call-time 주소 평가): value=5, list={1,3,2,7,9}
-- pass-by-value-result (return-time 주소 평가): value=5 후 list[5]에 쓰려 함 → 범위 오류 가능
+- pass-by-value - 변화 없음.
+- pass-by-reference - value=5, list={1,3,2,7,9}
+- pass-by-value-result (call-time 주소 평가) - value=5, list={1,3,2,7,9}
+- pass-by-value-result (return-time 주소 평가) - value=5 후 list[5]에 쓰려 함 → 범위 오류 가능
 
 ## 2. Implementing Subprogram (ARI, Static Chain)
 
 ### Activation Record (AR)
 
-subprogram 호출 시 runtime stack에 쌓이는 프레임 구조.
+subprogram 호출 시 runtime stack에 쌓이는 프레임 구조
 
 | 구성 요소 | 설정 주체 | 역할 |
 |---|---|---|
@@ -120,17 +120,17 @@ subprogram 호출 시 runtime stack에 쌓이는 프레임 구조.
 | Actual parameters | Caller | 전달된 인자 |
 | Local variables | Callee | 지역 변수 공간 |
 
-- **EP (Environment Pointer)**: 현재 실행 중인 ARI의 base를 가리킴
+- EP (Environment Pointer) - 현재 실행 중인 ARI의 base를 가리킴.
 - 호출 시 현재 EP를 new ARI에 dynamic link로 저장 후, EP를 새 ARI base로 변경
 - 종료 시 EP를 dynamic link로 복원
 
 ### Prologue / Epilogue
 
-- **Prologue** (Callee, 실행 시작):
+- Prologue (Callee, 실행 시작) -
  1. old EP를 dynamic link로 저장
  2. 지역 변수 공간 할당
 
-- **Epilogue** (Callee, 실행 종료):
+- Epilogue (Callee, 실행 종료) -
  1. out-mode 파라미터 값 반환
  2. 함수 반환값을 caller 접근 가능한 위치로 이동
  3. stack top을 EP-1로 복원, EP를 dynamic link로 복원
@@ -139,10 +139,10 @@ subprogram 호출 시 runtime stack에 쌓이는 프레임 구조.
 
 ### Local Offset / Chain Offset
 
-변수 접근 표기: `(chain_offset, local_offset)`
+변수 접근 표기 - `(chain_offset, local_offset)`
 
-- **local_offset**: ARI 시작부터 해당 변수까지의 거리 (컴파일 타임 결정)
-- **chain_offset**: 몇 번 static link를 따라가야 하는지
+- local_offset - ARI 시작부터 해당 변수까지의 거리 (컴파일 타임 결정)
+- chain_offset - 몇 번 static link를 따라가야 하는지
 
 static link는 ARI에 추가된 포인터로, 자신을 감싸는 lexical parent의 ARI를 가리킴.
 
@@ -153,46 +153,46 @@ Bigsub:  A(offset=3), B(offset=4), C(offset=5)  [depth=0]
   Sub3: E(offset=4)               [depth=2]
 ```
 
-Sub3에서:
-- 지역 변수 E: (0, 4)
-- Sub2의 B: (1, 4) — B는 Sub2의 첫 지역 변수지만 Sub2에 parameter가 있으면 offset 밀림
-- Bigsub의 A: (2, 3)
+Sub3에서 -
+- 지역 변수 E - (0, 4)
+- Sub2의 B - (1, 4) - B는 Sub2의 첫 지역 변수지만 Sub2에 parameter가 있으면 offset 밀림.
+- Bigsub의 A - (2, 3)
 
-Sub2에서:
-- Bigsub의 A: (1, 3)
+Sub2에서 -
+- Bigsub의 A - (1, 3)
 - D는 없음 → static semantic error
 
 ### Simple vs Stack-Dynamic
 
-- **Simple subprogram**: 재귀 없음, 지역 변수가 모두 static → ARI 고정 크기, 컴파일 타임에 static 할당
-- **Stack-dynamic**: 재귀 지원, 호출마다 새 ARI 동적 생성
+- Simple subprogram - 재귀 없음, 지역 변수가 모두 static → ARI 고정 크기, 컴파일 타임에 static 할당
+- Stack-dynamic - 재귀 지원, 호출마다 새 ARI 동적 생성
 
 ### Dynamic Scoping
 
-- **Deep access**: dynamic chain(동적 링크) 따라 가장 최근 ARI부터 변수 탐색
- - 속도: O(depth)
- - 단점: 컴파일 타임에 chain 길이 알 수 없음
+- Deep access - dynamic chain(동적 링크) 따라 가장 최근 ARI부터 변수 탐색
+ - 속도 - O(depth)
+ - 단점 - 컴파일 타임에 chain 길이 알 수 없음.
 
-- **Shallow access**: 변수 이름마다 별도 stack 유지, top이 현재 값
- - 속도: O(1)
- - 단점: subprogram 진입/종료 시 모든 변수 stack push/pop 비용
+- Shallow access - 변수 이름마다 별도 stack 유지, top이 현재 값
+ - 속도 - O(1)
+ - 단점 - subprogram 진입/종료 시 모든 변수 stack push/pop 비용
 
 ## 3. Concurrency
 
 ### 용어
 
-- **Task/Process/Thread**: 다른 프로그램 단위와 동시에 실행될 수 있는 단위
-- **Physical concurrency**: 실제 여러 프로세서에서 동시 실행
-- **Logical concurrency**: 단일 프로세서에서 time-sharing으로 동시 실행처럼 보임
-- **Race condition**: 공유 자원에 순서 없이 접근하여 실행 순서에 따라 결과가 달라지는 상황
-- **Deadlock**: 모든 task가 영원히 대기하는 상태 (liveness 상실)
-- **Liveness**: task가 언젠가 실행을 완료한다는 보장
-- **Mutual exclusion**: 공유 자원에 한 번에 하나의 task만 접근
+- Task/Process/Thread - 다른 프로그램 단위와 동시에 실행될 수 있는 단위
+- Physical concurrency - 실제 여러 프로세서에서 동시 실행
+- Logical concurrency - 단일 프로세서에서 time-sharing으로 동시 실행처럼 보임.
+- Race condition - 공유 자원에 순서 없이 접근하여 실행 순서에 따라 결과가 달라지는 상황
+- Deadlock - 모든 task가 영원히 대기하는 상태 (liveness 상실)
+- Liveness - task가 언젠가 실행을 완료한다는 보장
+- Mutual exclusion - 공유 자원에 한 번에 하나의 task만 접근
 
 ### Synchronization 종류
 
-- **Cooperation synchronization**: task A가 계속 실행되려면 task B의 특정 작업 완료를 기다려야 함 (예: producer-consumer)
-- **Competition synchronization**: 동시에 사용할 수 없는 공유 자원에 대한 배타적 접근 보장
+- Cooperation synchronization - task A가 계속 실행되려면 task B의 특정 작업 완료를 기다려야 함 (예 - producer-consumer)
+- Competition synchronization - 동시에 사용할 수 없는 공유 자원에 대한 배타적 접근 보장
 
 ### Task 상태
 
@@ -200,7 +200,7 @@ New → Ready → Running → Blocked → Dead
 
 ### Semaphore
 
-Dijkstra(1965). counter(정수) + 대기 queue로 구성.
+Dijkstra(1965). counter(정수) + 대기 queue로 구성
 
 ```
 wait(s):
@@ -216,9 +216,9 @@ release(s):
   queue에서 task 하나를 ready 상태로 이동
 ```
 
-`wait`와 `release`는 반드시 atomic하게 실행되어야 함.
+`wait`와 `release`는 반드시 atomic하게 실행되어야 함
 
-**Cooperation synchronization 예시 (producer-consumer)**
+Cooperation synchronization 예시 (producer-consumer)
 
 ```
 semaphore fullspots, emptyspots;
@@ -240,7 +240,7 @@ task consumer:
  end loop
 ```
 
-**Competition synchronization 추가 (binary semaphore = mutex)**
+Competition synchronization 추가 (binary semaphore = mutex)
 
 ```
 semaphore access, fullspots, emptyspots;
@@ -265,21 +265,21 @@ task consumer:
  end loop
 ```
 
-주의: `wait(emptyspots)` → `wait(access)` 순서여야 함. 반대로 하면 deadlock.
+주의 - `wait(emptyspots)` → `wait(access)` 순서여야 함. 반대로 하면 deadlock.
 
-**Semaphore 오용 시 문제**
+Semaphore 오용 시 문제
 - `release(access)` 누락 → deadlock
 - `wait(fullspots)` 누락 → buffer underflow (빈 버퍼에서 FETCH)
 - `release(fullspots)` 누락 → consumer가 영원히 대기
 
 ### Monitor
 
-공유 데이터를 encapsulate, 한 번에 하나의 task만 접근하도록 런타임이 보장.
+공유 데이터를 encapsulate, 한 번에 하나의 task만 접근하도록 런타임이 보장
 
-- Competition synchronization: 자동 보장
-- Cooperation synchronization: 프로그래머가 condition variable로 직접 구현
+- Competition synchronization - 자동 보장
+- Cooperation synchronization - 프로그래머가 condition variable로 직접 구현
 
-Java: `synchronized` 키워드
+Java - `synchronized` 키워드
 
 ```java
 public synchronized void deposit(int item) { ... }
@@ -288,13 +288,13 @@ public synchronized int fetch() { ... }
 
 Cooperation은 `wait()`, `notify()`, `notifyAll()` 사용 (Object 클래스 메서드).
 
-**Monitor vs Semaphore**:
-- Monitor가 더 안전: 공유 데이터가 monitor 내부에만 있고, competition sync가 자동
-- Semaphore는 직접 관리하므로 실수 가능성 높음
+Monitor vs Semaphore -
+- Monitor가 더 안전 - 공유 데이터가 monitor 내부에만 있고, competition sync가 자동
+- Semaphore는 직접 관리하므로 실수 가능성 높음.
 
 ### Message Passing (Ada)
 
-Ada의 rendezvous 모델: sender와 receiver 모두 준비되면 동기적으로 통신.
+Ada의 rendezvous 모델 - sender와 receiver 모두 준비되면 동기적으로 통신
 
 ```ada
 task body Buf_Task is
@@ -317,9 +317,9 @@ begin
 end Buf_Task;
 ```
 
-- `accept`: 해당 entry로 메시지가 올 때까지 block
-- `select`: 여러 accept 중 하나를 선택 (비결정적)
-- `when 조건 =>`: guarded accept — 조건이 참일 때만 open
+- `accept` - 해당 entry로 메시지가 올 때까지 block
+- `select` - 여러 accept 중 하나를 선택 (비결정적)
+- `when 조건 =>` - guarded accept - 조건이 참일 때만 open
 
 ### Java Threads
 
@@ -331,14 +331,14 @@ Thread t = new MyThread();
 t.start();
 ```
 
-주요 메서드:
-- `start()`: run()을 새 thread에서 실행
-- `yield()`: 프로세서 자발적 양보
-- `sleep(ms)`: 지정 시간 block
-- `join()`: 해당 thread 완료까지 대기
-- `setPriority(n)`: 우선순위 설정 (1~10, 기본 5)
+주요 메서드 -
+- `start()` - run()을 새 thread에서 실행
+- `yield()` - 프로세서 자발적 양보
+- `sleep(ms)` - 지정 시간 block
+- `join()` - 해당 thread 완료까지 대기
+- `setPriority(n)` - 우선순위 설정 (1~10, 기본 5)
 
-Java Semaphore:
+Java Semaphore -
 
 ```java
 Semaphore emptyspots = new Semaphore(BUFLEN);
@@ -354,14 +354,14 @@ Thread t = new Thread(new ThreadStart(MyMethod));
 t.Start();
 ```
 
-동기화 방법:
-- `Interlocked.Increment(ref counter)`: 정수 atomic 연산
-- `lock(obj) { ... }`: critical section
+동기화 방법 -
+- `Interlocked.Increment(ref counter)` - 정수 atomic 연산
+- `lock(obj) { ... }` - critical section
 - `Monitor` 클래스
 
 ### Ada 95 Protected Objects
 
-rendezvous보다 가벼운 공유 데이터 보호 메커니즘.
+rendezvous보다 가벼운 공유 데이터 보호 메커니즘
 
 ```ada
 protected Buffer is
@@ -376,10 +376,10 @@ end Buffer;
 
 ### 기본 특징
 
-- prefix 표기법: `(operator operand1 operand2 ...)`
+- prefix 표기법 - `(operator operand1 operand2 ...)`
 - 코드와 데이터 모두 S-expression (리스트 구조)
 - static scope, first-class function
-- REPL: Read → Eval → Print → Loop
+- REPL - Read → Eval → Print → Loop
 
 ### 함수
 
@@ -393,7 +393,7 @@ end Buffer;
 | `EQV?` | 값 동일성 | 숫자도 비교 가능 |
 | `LIST?` | 리스트 여부 | `(LIST? '(A B))` → `#T` |
 
-CAR/CDR 합성 축약형:
+CAR/CDR 합성 축약형 -
 
 ```scheme
 (CADR x)  ; (CAR (CDR x))    -- 두 번째 원소
@@ -411,7 +411,7 @@ CAR/CDR 합성 축약형:
 (DEFINE square (LAMBDA (x) (* x x)))
 ```
 
-DEFINE으로 바인딩된 이름은 Java의 `final`처럼 재바인딩 불가.
+DEFINE으로 바인딩된 이름은 Java의 `final`처럼 재바인딩 불가
 
 ### 조건문
 
@@ -424,7 +424,7 @@ DEFINE으로 바인딩된 이름은 Java의 `final`처럼 재바인딩 불가.
  (ELSE default_expr))
 ```
 
-예시 -- 입장료:
+예시 -- 입장료 -
 ```scheme
 (DEFINE (admissionfee age)
  (COND
@@ -435,7 +435,7 @@ DEFINE으로 바인딩된 이름은 Java의 `final`처럼 재바인딩 불가.
 (admissionfee 65) ; → 2500
 ```
 
-예시 -- 윤년 판별:
+예시 -- 윤년 판별 -
 ```scheme
 (DEFINE (leap? year)
  (COND
@@ -547,10 +547,10 @@ DEFINE으로 바인딩된 이름은 Java의 `final`처럼 재바인딩 불가.
 
 ### 이진 트리
 
-트리를 `(값 왼쪽 오른쪽)` 형태의 리스트로 표현.
-- `(CAR t)`: 루트 값
-- `(CADR t)`: 왼쪽 subtree
-- `(CADDR t)`: 오른쪽 subtree
+트리를 `(값 왼쪽 오른쪽)` 형태의 리스트로 표현
+- `(CAR t)` - 루트 값
+- `(CADR t)` - 왼쪽 subtree
+- `(CADDR t)` - 오른쪽 subtree
 
 ```scheme
 ; 노드 수 계산
@@ -577,7 +577,7 @@ DEFINE으로 바인딩된 이름은 Java의 `final`처럼 재바인딩 불가.
       (tree-max (CADDR t)))))
 ```
 
-트리 예시: `'(5 (3 (1 () ()) (4 () ())) (8 (7 () ()) ()))`
+트리 예시 - `'(5 (3 (1 () ()) (4 () ())) (8 (7 () ()) ()))`
 
 ### LET
 
@@ -644,7 +644,7 @@ DEFINE으로 바인딩된 이름은 Java의 `final`처럼 재바인딩 불가.
 
 ### Tail Recursion
 
-마지막 연산이 재귀 호출 → 컴파일러가 반복문으로 변환 가능.
+마지막 연산이 재귀 호출 → 컴파일러가 반복문으로 변환 가능
 Scheme은 tail call optimization을 언어 명세에서 요구함.
 
 ```scheme
@@ -696,7 +696,7 @@ Scheme은 tail call optimization을 언어 명세에서 요구함.
 ### 기본 특징
 
 - 정적 스코프, 강한 타입, 타입 추론 (type inferencing)
-- 타입 간 암묵적 변환(coercion) 없음
+- 타입 간 암묵적 변환(coercion) 없음.
 - immutable 변수
 - 사용자 정의 함수 오버로딩 불가 → 다른 이름 사용
 
@@ -709,7 +709,7 @@ fun fact(n : int) : int =
  else n * fact(n - 1);
 ```
 
-반환값: 마지막 표현식의 값.
+반환값 - 마지막 표현식의 값
 
 ### 패턴 매칭
 
@@ -834,9 +834,9 @@ val result = doubleThenSquare 3; (* square(double(3)) = 36 *)
 
 ### ML과 차이점
 
-- **Lazy evaluation**: 값이 실제로 필요할 때까지 평가 미룸
-- **순수 함수형**: 변수 없음, 대입문 없음, side effect 없음
-- **type class**: 오버로딩 지원
+- Lazy evaluation - 값이 실제로 필요할 때까지 평가 미룸.
+- 순수 함수형 - 변수 없음, 대입문 없음, side effect 없음.
+- type class - 오버로딩 지원
 - 무한 리스트 가능
 
 ### 기본 리스트 함수
@@ -901,7 +901,7 @@ sub n
 
 ### foldr
 
-오른쪽에서 왼쪽으로 누적.
+오른쪽에서 왼쪽으로 누적
 
 `foldr f v [x1, x2, x3]` = `x1 \`f\` (x2 \`f\` (x3 \`f\` v))`
 
@@ -1092,7 +1092,7 @@ quadratic a b c =
 
 - Scheme보다 크고 복잡한 언어
 - static scoping 기본, `special` 선언으로 dynamic scoping 가능
-- `DEFUN`: 함수 정의, `SETF`: 값 할당
+- `DEFUN` - 함수 정의, `SETF` - 값 할당
 
 ```lisp
 (DEFUN square (x) (* x x))
@@ -1100,14 +1100,14 @@ quadratic a b c =
 (LOOP FOR I FROM 1 TO 5 DO (FORMAT T "~A " I))
 ```
 
-Backquote: `` ` `` + `,`로 일부만 평가 가능
+Backquote - `` ` `` + `,`로 일부만 평가 가능
 
 ```lisp
 `(a (* 3 4) c)  ; → (a (* 3 4) c) -- 평가 안 됨
 `(a ,(* 3 4) c) ; → (a 12 c)    -- , 뒤만 평가됨
 ```
 
-member 함수:
+member 함수 -
 ```lisp
 (DEFUN recursive_member (atm lst)
  (COND
@@ -1120,10 +1120,10 @@ member 함수:
 
 - ML/OCaml 계열, .NET 기반
 - 함수형 + 명령형 + OOP 지원
-- `let`: 값 바인딩, `let mutable`: 가변 변수, `let rec`: 재귀 함수
-- `fun`: lambda 표현식, `>>`: 함수 합성, `|>`: pipeline
+- `let` - 값 바인딩, `let mutable` - 가변 변수, `let rec` - 재귀 함수
+- `fun` - lambda 표현식, `>>` - 함수 합성, `|>` - pipeline
 
-**재귀 함수 (패턴 매칭)**
+재귀 함수 (패턴 매칭)
 
 ```fsharp
 let rec factorial n =
@@ -1133,7 +1133,7 @@ let rec factorial n =
  | _ -> n * factorial (n - 1)
 ```
 
-**Pipeline `|>`**
+Pipeline `|>`
 
 ```fsharp
 let myNums = [1; 2; 3; 4; 5]
@@ -1144,7 +1144,7 @@ let result =
 // result = [10; 20]
 ```
 
-**함수 합성 `>>`**
+함수 합성 `>>`
 
 ```fsharp
 let negate x = -1 * x
@@ -1154,7 +1154,7 @@ let negateSquare = square >> negate // (f >> g) x = g(f(x))
 negateSquare 3 // square(3)=9, negate(9)=-9
 ```
 
-**Quicksort**
+Quicksort
 
 ```fsharp
 let rec quicksort list =
@@ -1172,7 +1172,7 @@ let rec quicksort list =
   smaller @ [firstElem] @ larger
 ```
 
-**Insertion Sort**
+Insertion Sort
 
 ```fsharp
 let rec insert n ls =
@@ -1190,7 +1190,7 @@ let rec insertSort ls =
 // insertSort [3; 1; 4; 2] --> [1; 2; 3; 4]
 ```
 
-**List 고차 함수**
+List 고차 함수
 
 ```fsharp
 let l = [1; 2; 3; 4; 5]
@@ -1209,7 +1209,7 @@ List.fold (fun acc x -> acc + x) 0 l // 15
 | 출시 | 1975 | 1984 | 1973 | 1990 |
 | 계보 | Lisp 방언 | 여러 Lisp 방언 통합 | 독립 설계 | ML 계열 |
 | 크기 | 작고 간결 | 크고 복잡 | 중간 | 중간 |
-| 순수 함수형 | 아님 | 아님 | 아님 | **예** |
+| 순수 함수형 | 아님 | 아님 | 아님 | 예 |
 
 ### 타입 시스템
 
@@ -1239,7 +1239,7 @@ List.fold (fun acc x -> acc + x) 0 l // 15
 | Tail call 최적화 | 언어 명세에서 요구 | 구현 의존 | 구현 의존 | 있음 |
 | Side effect | 가능 (`set!`, I/O) | 가능 (`SETF`, I/O) | 가능 (`ref`, I/O) | IO 모나드로만 허용 |
 
-### 문법 — 함수 정의
+### 문법 - 함수 정의
 
 | | Scheme | Common Lisp | ML | Haskell |
 |---|---|---|---|---|
@@ -1250,7 +1250,7 @@ List.fold (fun acc x -> acc + x) 0 l // 15
 | 함수 합성 | compose 직접 정의 | compose 직접 정의 | `o` 연산자 | `.` 연산자 |
 | 주석 | `;` | `;` | `(* ... *)` | `--` 또는 `{- -}` |
 
-### 문법 — 조건문
+### 문법 - 조건문
 
 | | Scheme | Common Lisp | ML | Haskell |
 |---|---|---|---|---|
@@ -1258,7 +1258,7 @@ List.fold (fun acc x -> acc + x) 0 l // 15
 | 다분기 | `(COND ...)` | `(COND ...)` | 패턴 매칭 | guards (`|`) 또는 패턴 매칭 |
 | 기본값 (else) | `(ELSE ...)` | `(T ...)` | 패턴의 마지막 절 | `otherwise` |
 
-### 문법 — 리스트 연산
+### 문법 - 리스트 연산
 
 | 연산 | Scheme | Common Lisp | ML | Haskell |
 |---|---|---|---|---|
@@ -1271,7 +1271,7 @@ List.fold (fun acc x -> acc + x) 0 l // 15
 | 리스트 연결 | `(append l1 l2)` | `(append l1 l2)` | `l1 @ l2` | `l1 ++ l2` |
 | 길이 | `(length lst)` | `(length lst)` | `length lst` | `length lst` |
 
-### 문법 — 고차 함수
+### 문법 - 고차 함수
 
 | 연산 | Scheme | Common Lisp | ML | Haskell |
 |---|---|---|---|---|
@@ -1279,7 +1279,7 @@ List.fold (fun acc x -> acc + x) 0 l // 15
 | filter | `(FILTER pred lst)` | `(remove-if-not pred lst)` | `filter pred lst` | `filter pred lst` |
 | fold | `(FOLD f base lst)` | `(reduce f lst)` | `foldl f base lst` | `foldr f v lst` |
 
-### 문법 — 지역 바인딩
+### 문법 - 지역 바인딩
 
 | | Scheme | Common Lisp | ML | Haskell |
 |---|---|---|---|---|
@@ -1352,17 +1352,19 @@ List.fold (fun acc x -> acc + x) 0 l // 15
 
 ### 언어 계보
 
-```
-LISP (1958)
-├── Common Lisp (1984) — 여러 LISP 방언 통합, 대형 언어
-└── Scheme (1975)   — 작고 순수한 static scope LISP
 
-ML (1973)
-├── SML (Standard ML)
-├── OCaml
-│  └── F# (2005)  — .NET 기반, 함수형+명령형+OOP
-└── Haskell (1990)  — 순수 함수형, lazy evaluation
-```
+<!-- diagram -->
+
+    LISP (1958)
+    ├── Common Lisp (1984) - large language combining LISP dialects
+    └── Scheme (1975) - small, pure LISP with static scope
+
+    ML (1973)
+    ├── SML (Standard ML)
+    ├── OCaml
+    │   └── F# (2005) - .NET; functional, imperative, and object-oriented
+    └── Haskell (1990) - pure functional programming and lazy evaluation
+
 
 ### 조건문 비교
 
@@ -1407,10 +1409,10 @@ ML (1973)
 
 ### 공통 특성 (모든 FPL)
 
-- first-class function: 함수를 값처럼 사용 가능 (변수 할당, 인자 전달, 반환)
+- first-class function - 함수를 값처럼 사용 가능 (변수 할당, 인자 전달, 반환)
 - 재귀로 반복 표현 (loop 대신)
-- referential transparency 지향: 같은 입력 → 항상 같은 출력
-- higher-order function 지원: map, filter, fold 등
+- referential transparency 지향 - 같은 입력 → 항상 같은 출력
+- higher-order function 지원 - map, filter, fold 등
 
 ### ML vs Haskell 차이
 
@@ -1437,12 +1439,12 @@ ML (1973)
 
 ### 개념
 
-- **exception**: 하드웨어나 소프트웨어가 감지하는 비정상적/특별한 사건
-- **exception handler**: exception 발생 시 실행되는 처리 코드
-- **raising**: exception 발생시키기
-- **propagation**: handler가 없으면 호출자에게 exception 전달
-- **termination**: handler 완료 후 raising 블록으로 돌아가지 않음
-- **resumption**: handler 완료 후 raising 지점에서 계속 실행 (Ruby의 `retry`)
+- exception - 하드웨어나 소프트웨어가 감지하는 비정상적/특별한 사건
+- exception handler - exception 발생 시 실행되는 처리 코드
+- raising - exception 발생시키기
+- propagation - handler가 없으면 호출자에게 exception 전달
+- termination - handler 완료 후 raising 블록으로 돌아가지 않음.
+- resumption - handler 완료 후 raising 지점에서 계속 실행 (Ruby의 `retry`)
 
 ### 언어별 Syntax 비교
 
@@ -1469,16 +1471,16 @@ exception
 end;
 ```
 
-사전 정의 예외: `Constraint_Error`, `Program_Error`, `Storage_Error`, `Tasking_Error`
+사전 정의 예외 - `Constraint_Error`, `Program_Error`, `Storage_Error`, `Tasking_Error`
 
-사용자 정의:
+사용자 정의 -
 ```ada
 My_Error : exception;
 raise My_Error;
 raise; -- handler 내에서: 같은 exception 재발생
 ```
 
-exception 비활성화: `pragma Suppress(check_name);`
+exception 비활성화 - `pragma Suppress(check_name);`
 
 ### C++
 
@@ -1519,12 +1521,12 @@ finally {
 }
 ```
 
-계층 구조:
+계층 구조 -
 - `Throwable` → `Error` (JVM 발생, 처리 불필요)
 - `Throwable` → `Exception` → `RuntimeException` (unchecked)
 - `Throwable` → `Exception` → 그 외 (checked)
 
-**checked exception**: `throws` 절에 선언하거나 직접 처리해야 함
+checked exception - `throws` 절에 선언하거나 직접 처리해야 함.
 
 ```java
 void buildDist() throws IOException {
@@ -1532,7 +1534,7 @@ void buildDist() throws IOException {
 }
 ```
 
-**unchecked exception**: `RuntimeException`, `Error` 하위 — 컴파일러가 강제하지 않음
+unchecked exception - `RuntimeException`, `Error` 하위 - 컴파일러가 강제하지 않음.
 
 ### Python
 
@@ -1549,7 +1551,7 @@ finally:
   pass # 항상 실행
 ```
 
-계층: `BaseException` → `Exception` → `ArithmeticError`, `LookupError` 등
+계층 - `BaseException` → `Exception` → `ArithmeticError`, `LookupError` 등
 
 ### Ruby
 
@@ -1570,43 +1572,43 @@ end
 
 ### Polymorphism 종류
 
-- **Ad hoc polymorphism**: 오버로딩. 각 타입마다 별도 구현. 같은 이름, 다른 protocol.
-- **Subtype polymorphism**: 상속 기반. 부모 타입 변수가 자식 객체를 참조.
-- **Parametric polymorphism**: generic. 타입을 매개변수화.
+- Ad hoc polymorphism - 오버로딩. 각 타입마다 별도 구현. 같은 이름, 다른 protocol.
+- Subtype polymorphism - 상속 기반. 부모 타입 변수가 자식 객체를 참조
+- Parametric polymorphism - generic. 타입을 매개변수화
 
 ### Polymorphic Variable 선언 방법 (언어별)
 
-**C++ (pointer 기반, virtual 필요)**
+C++ (pointer 기반, virtual 필요)
 ```cpp
 Shape* ptr = new Circle();
 ptr->draw(); // virtual일 때 dynamic binding
 ```
 
-**Java (reference 기반, 기본 dynamic)**
+Java (reference 기반, 기본 dynamic)
 ```java
 Animal a = new Dog();
 a.speak(); // 항상 dynamic (final/static/private 제외)
 ```
 
-**C# (virtual + override 필요)**
+C# (virtual + override 필요)
 ```csharp
 Shape s = new Circle();
 s.Draw();  // virtual + override일 때 dynamic
 ```
 
-**Python (타입 없는 변수)**
+Python (타입 없는 변수)
 ```python
 x = Dog()
 x.speak()
 ```
 
-**Ruby (모든 변수가 typeless)**
+Ruby (모든 변수가 typeless)
 ```ruby
 x = Dog.new
 x.speak
 ```
 
-**Smalltalk**
+Smalltalk
 ```smalltalk
 x := Dog new.
 x speak.  "모든 메시지가 dynamic binding"
@@ -1615,9 +1617,9 @@ x speak.  "모든 메시지가 dynamic binding"
 ### Dynamic Binding
 
 - 런타임에 어떤 메서드가 호출될지 결정
-- virtual method table (vtable)을 통해 구현: 동적으로 바인딩되는 메서드 포인터 목록
+- virtual method table (vtable)을 통해 구현 - 동적으로 바인딩되는 메서드 포인터 목록
 
-**C++**
+C++
 ```cpp
 class Shape {
 public:
@@ -1631,7 +1633,7 @@ Shape* s = new Circle();
 s->draw(); // vtable을 통해 Circle::draw() 호출
 ```
 
-stack 할당 시:
+stack 할당 시 -
 ```cpp
 Square sq;
 Rectangle rect;
@@ -1639,14 +1641,14 @@ rect = sq;   // object slicing: Square의 추가 변수 날아감
 rect.draw();  // Rectangle::draw() 정적 바인딩
 ```
 
-**Java**: `final`, `static`, `private` 메서드는 static binding, 나머지는 모두 dynamic binding
+Java - `final`, `static`, `private` 메서드는 static binding, 나머지는 모두 dynamic binding
 
-**C#**: `virtual` + `override` 조합. `new` 키워드는 부모 메서드 숨김 (static binding)
+C# - `virtual` + `override` 조합. `new` 키워드는 부모 메서드 숨김 (static binding)
 
 ### Abstract Class vs Interface (Java)
 
-- **abstract class**: `abstract` 키워드, 일부 메서드 구현 가능, 단일 상속
-- **interface**: 메서드 선언만, 다중 구현 가능, 변수 없음 (상수만)
+- abstract class - `abstract` 키워드, 일부 메서드 구현 가능, 단일 상속
+- interface - 메서드 선언만, 다중 구현 가능, 변수 없음 (상수만)
 
 ```java
 interface Animal { void bark(); }
@@ -1657,8 +1659,8 @@ class Dog implements Animal {
 
 ### 상속 접근 제어 (C++)
 
-- `public` 상속: 부모의 public/protected 그대로 유지 → subtype 관계
-- `private` 상속: 부모의 모든 멤버가 private → subtype 관계 아님, 구현만 재사용
+- `public` 상속 - 부모의 public/protected 그대로 유지 → subtype 관계
+- `private` 상속 - 부모의 모든 멤버가 private → subtype 관계 아님, 구현만 재사용
 
 ### Ruby Mixin
 
@@ -1674,9 +1676,9 @@ class Bird
 end
 ```
 
-- `include`: 인스턴스 메서드로 주입
-- `prepend`: 인스턴스 메서드로 주입, 클래스 자신의 메서드보다 우선
-- `extend`: 클래스 메서드로 주입
+- `include` - 인스턴스 메서드로 주입
+- `prepend` - 인스턴스 메서드로 주입, 클래스 자신의 메서드보다 우선
+- `extend` - 클래스 메서드로 주입
 
 ### ADT 개념
 
@@ -1684,7 +1686,7 @@ end
 - 내부 표현 숨김 (information hiding)
 - getter/setter를 통한 간접 접근
 
-Java 접근 제어:
+Java 접근 제어 -
 
 | modifier | 같은 클래스 | 같은 패키지 | 상속 | 외부 |
 |---|---|---|---|---|
@@ -1693,7 +1695,7 @@ Java 접근 제어:
 | package-private | O | O | X | X |
 | `private` | O | X | X | X |
 
-C# 추가: `internal` (같은 assembly), `protected internal`
+C# 추가 - `internal` (같은 assembly), `protected internal`
 
 ## 10. Generic Subprograms
 
@@ -1709,7 +1711,7 @@ max(1.0, 2.0);  // 2.0 (double)
 ```
 
 - 특화된 함수가 template보다 우선
-- 여러 타입 파라미터: `template <class T1, class T2>`
+- 여러 타입 파라미터 - `template <class T1, class T2>`
 
 ### Java Generics
 
@@ -1722,7 +1724,7 @@ Stack<Integer> s = new Stack<Integer>();
 ```
 
 - primitive type 직접 사용 불가 → Integer, Double 등 wrapper class 사용
-- wildcard: `Collection<?>` — 읽기 가능, 쓰기 제한
+- wildcard - `Collection<?>` - 읽기 가능, 쓰기 제한
 
 ### Ada Generic
 
@@ -1744,9 +1746,9 @@ package Integer_Stack is new Generic_Stack(100, Integer);
 
 `(chain_offset, local_offset)`
 
-- chain_offset = 0: 현재 서브프로그램의 지역 변수
-- chain_offset = 1: 직접 상위(부모) 서브프로그램의 변수
-- local_offset: ARI 내 오프셋 (컴파일 타임 결정)
+- chain_offset = 0 - 현재 서브프로그램의 지역 변수
+- chain_offset = 1 - 직접 상위(부모) 서브프로그램의 변수
+- local_offset - ARI 내 오프셋 (컴파일 타임 결정)
 
 ### Scheme 이진 트리 코드
 
@@ -1782,13 +1784,13 @@ foldr (\_ n -> 1+n) 0 [10,20,30]
 
 | 언어 | try 시작 | catch | throw | 정리 |
 |---|---|---|---|---|
-| Ada | `begin` | `exception when` | `raise` | — |
-| C++ | `try` | `catch` | `throw` | — |
+| Ada | `begin` | `exception when` | `raise` | - |
+| C++ | `try` | `catch` | `throw` | - |
 | Java | `try` | `catch` | `throw` | `finally` |
 | Python | `try:` | `except` | `raise` | `finally:` |
 | Ruby | `begin` | `rescue` | `raise` | `ensure` |
 
-Ruby 추가: `retry` (재시도), Java 추가: `throws` (메서드 선언에 checked exception 명시)
+Ruby 추가 - `retry` (재시도), Java 추가 - `throws` (메서드 선언에 checked exception 명시)
 
 ### Semaphore vs Monitor
 

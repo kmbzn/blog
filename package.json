@@ -1,26 +1,36 @@
 {
-  "name": "blog-v2",
-  "description": "VuePress v2 blog",
+  "name": "blog",
+  "description": "컴퓨터공학 학습 자료",
   "version": "1.0",
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "dev": "vuepress dev docs --port 3000",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "audit:notes": "node scripts/audit-notes.mjs"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "^2.0.0-rc.30",
-    "@vuepress/client": "^2.0.0-rc.30",
-    "@vuepress/plugin-markdown-math": "^2.0.0-rc.131",
-    "@vuepress/plugin-seo": "^2.0.0-rc.131",
-    "@vuepress/plugin-sitemap": "^2.0.0-rc.131",
-    "@vuepress/theme-default": "^2.0.0-rc.131",
-    "baseline-browser-mapping": "^2.10.42",
-    "katex": "^0.16.47",
-    "mathjax-full": "^3.2.2",
-    "sass-embedded": "^1.100.0",
-    "typescript": "^5.9.3",
-    "vue": "^3.5.39",
-    "vuepress": "^2.0.0-rc.30"
+    "@vuepress/bundler-vite": "2.0.0-rc.31",
+    "@vuepress/client": "2.0.0-rc.31",
+    "@vuepress/plugin-markdown-hint": "2.0.0-rc.137",
+    "@vuepress/plugin-markdown-math": "2.0.0-rc.137",
+    "@vuepress/plugin-markdown-tab": "2.0.0-rc.137",
+    "baseline-browser-mapping": "2.11.34",
+    "katex": "0.18.10",
+    "sass-embedded": "1.107.0",
+    "typescript": "7.0.2",
+    "vue": "3.5.44",
+    "vuepress": "2.0.0-rc.31"
+  },
+  "private": true,
+  "packageManager": "npm@12.2.1",
+  "engines": {
+    "node": "26.x",
+    "npm": ">=11.20.0 <13"
+  },
+  "overrides": {
+    "@vuepress/plugin-markdown-math": {
+      "@mdit/plugin-katex-slim": "1.1.3"
+    }
   }
 }

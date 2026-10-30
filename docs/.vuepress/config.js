@@ -1,235 +1,73 @@
 import { defineUserConfig } from 'vuepress'
 import { viteBundler } from '@vuepress/bundler-vite'
-import theme from './theme/index.js'
+import { markdownHintPlugin } from '@vuepress/plugin-markdown-hint'
 import { markdownMathPlugin } from '@vuepress/plugin-markdown-math'
-import { sitemapPlugin } from '@vuepress/plugin-sitemap'
-import { seoPlugin } from '@vuepress/plugin-seo'
+import { existsSync, readdirSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 
-const sidebar = [
-  {
-    children: [
-      '/mindscape', '/musics',
-    ]
-  },
-  {
-    text: 'Algorithm',
-    collapsible: true,
-    children: [
-      '/a/1018', '/a/1966', '/a/pytimeout', '/a/stdvector', '/a/vim',
-    ]
-  },
-  {
-    text: 'Ubuntu',
-    collapsible: false,
-    children: [
-      '/os/dunggeunmo',
-      '/os/ubuntu_thumbnails',
-      '/os/clipboard_image_kakaotalk_ubuntu',
-      '/os/wine_without_explorer',
-      '/os/no_animation',
-      '/os/winemoji',
-    ]
-  },
-  {
-    text: 'Wellness',
-    collapsible: true,
-    children: [
-      '/wellness/psyllium-husk',
-      '/wellness/extra-virgin-olive-oil',
-      '/wellness/nasal-irrigation',
-      '/wellness/ht08',
-      '/wellness/concerta',
-      '/wellness/inderal',
-      '/wellness/sertraline',
-      '/wellness/melatonin',
-      '/wellness/cervical-abrasion',
-      '/wellness/barbell-squat',
-    ]
-  },
-  {
-    text: 'Humanities',
-    collapsible: true,
-    children: [
-      '/humanities/nordvik',
-      '/humanities/north-sentinel-island',
-      '/humanities/rongorongo',
-      '/humanities/baroque-music',
-    ]
-  },
-  {
-    text: 'Design',
-    collapsible: true,
-    children: [
-      '/design/google-icon-redesign-2026',
-      '/design/gerald-genta',
-      '/design/bauhaus',
-    ]
-  },
-  {
-    text: 'Brands',
-    collapsible: true,
-    children: [
-      '/brands/nomos-glashutte',
-      '/brands/frederique-constant',
-      '/brands/kz',
-      '/brands/aestrua',
-      '/brands/jinhao',
-      '/brands/herman-miller',
-      '/brands/desker',
-      '/brands/musinsa-standard',
-    ]
-  },
-  {
-    text: 'Finance',
-    collapsible: true,
-    children: [
-      '/finance/hyundai-card-zero',
-      '/finance/shinhan-card-cheum',
-      '/finance/sp500-etf',
-      '/finance/parking-account-cma',
-      '/finance/berkshire-hathaway',
-      '/finance/bitcoin',
-    ]
-  },
-  {
-    text: 'Products',
-    collapsible: true,
-    children: [
-      '/products/audio-interface',
-      '/products/kurutoga',
-      '/products/cx31993-dac',
-      '/products/cleansing-milk',
-      '/products/fidget-toy',
-      '/products/thinkpad',
-    ]
-  },
+// Use the same study pages in development and production.
+const subjects = [
+  ['마이크로프로세서', 'mp'],
+  ['데이터사이언스', 'ds'],
+  ['컴퓨터보안', 'cs'],
+  ['운영체제', 'os/study'],
+  ['데이터베이스', 'db'],
+  ['프로그래밍언어론', 'pl'],
+  ['소프트웨어공학', 'se'],
+  ['인공지능', 'ai'],
+  ['컴퓨터그래픽스', 'cg'],
 ]
 
-const sidebarPaths = new Set(
-  sidebar.flatMap(section =>
-    (section.children || []).map(child =>
-      typeof child === 'string' ? child : child.link
-    )
-  )
-)
-
-const pagePatterns = [
-  'README.md',
-  'index.md',
-  '404.md',
-  ...Array.from(sidebarPaths).flatMap(path => {
-    const cleanPath = path.replace(/^\//, '')
-    return [
-      `${cleanPath}.md`,
-      `${cleanPath}/README.md`,
-      `${cleanPath}/index.md`
-    ]
-  }),
-  '!.vuepress',
-  '!node_modules'
-]
+const sidebar = subjects
+  .filter(([, directory]) => existsSync(fileURLToPath(new URL(`../${directory}/`, import.meta.url))))
+  .map(([text, directory]) => ({
+    text,
+    children: readdirSync(fileURLToPath(new URL(`../${directory}/`, import.meta.url)))
+      .filter(name => name.endsWith('.md'))
+      .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
+      .map(name => `/${directory}/${name.slice(0, -3)}`),
+  }))
 
 export default defineUserConfig({
-  pagePatterns,
-  extendsPage: (page) => {
-    const normalized = page.path.replace(/\.html$/, '').replace(/\/$/, '') || '/'
-    if (normalized !== '/' && !sidebarPaths.has(normalized)) {
-      page.frontmatter.sitemap = false
-    }
-    if (normalized !== '/' && page.path !== '/404.html') {
-      page.path = normalized
-      page.frontmatter.permalink = normalized
-    }
-  },
   lang: 'ko-KR',
-  extendsMarkdown: (md) => {
-    md.core.ruler.push('inject-date-meta', (state) => {
-      for (let i = 0; i < state.tokens.length; i++) {
-        if (state.tokens[i].type === 'heading_close' && state.tokens[i].markup === '#') {
-          const t = new state.Token('html_block', '', 0)
-          t.content = '<DateMeta />\n'
-          state.tokens.splice(i + 1, 0, t)
-          break
-        }
-      }
-    })
-
-    md.core.ruler.push('wrap-print-sections', (state) => {
-      const tokens = state.tokens
-      const out = []
-      let inSection = false
-
-      for (const token of tokens) {
-        const isSub = token.type === 'heading_open'
-        if (isSub) {
-          if (inSection) {
-            const t = new state.Token('html_block', '', 0)
-            t.content = '</section>\n'
-            out.push(t)
-          }
-          const t = new state.Token('html_block', '', 0)
-          t.content = '<section class="print-section">\n'
-          out.push(t)
-          inSection = true
-        }
-        out.push(token)
-      }
-
-      if (inSection) {
-        const t = new state.Token('html_block', '', 0)
-        t.content = '</section>\n'
-        out.push(t)
-      }
-
-      state.tokens = out
-    })
-  },
-  plugins: [
-    markdownMathPlugin({
-      type: 'katex',
-    }),
-    sitemapPlugin({
-      hostname: 'https://kmbzn.com',
-    }),
-    seoPlugin({
-      hostname: 'https://kmbzn.com',
-      fallBackImage: 'https://kmbzn.com/images/og.png',
-      twitterID: '',
-    }),
-  ],
-  description: 'KeyBaseZone',
+  title: '',
+  description: '컴퓨터공학 전공과 개발 학습 기록',
   base: '/',
-  head: [
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css' }],
-    ['meta', { property: 'og:image', content: 'https://kmbzn.com/images/og.png' }],
-    ['link', { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/images/favicon-16x16.png' }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicon-32x32.png' }],
-    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/apple-touch-icon.png' }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/images/android-chrome-192x192.png' }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/images/android-chrome-512x512.png' }],
-    ['link', { rel: 'manifest', href: '/manifest.json' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css' }],
-    ['link', { rel: 'stylesheet', href: 'https://unpkg.com/applause-button/dist/applause-button.css' }],
-    ['script', { src: 'https://unpkg.com/applause-button/dist/applause-button.js' }],
-  ],
-  theme: theme({
-    logo: '/images/kbz.png',
-    colorMode: 'auto',
-    sidebar,
-    sidebarDepth: 0,
-    lastUpdated: true,
-    themePlugins: {
-      git: {
-        createdTime: true,
-      },
-      prismjs: {
-        themes: {
-          light: 'ghcolors',
-          dark: 'ghcolors',
-        }
-      }
+  pagePatterns: ['**/*.md', '!.vuepress', '!node_modules'],
+  // Keep existing extensionless links working.
+  extendsPage(page) {
+    if (page.path !== '/' && page.path !== '/404.html') {
+      const path = page.path.replace(/\.html$/, '').replace(/\/$/, '')
+      page.path = path
+      page.frontmatter.permalink = path
     }
-  }),
-  bundler: viteBundler()
+  },
+  extendsMarkdown(md) {
+    // Markdown distinguishes indented code from fenced code at the token level.
+    md.renderer.rules.code_block = (tokens, index) =>
+      `<pre class="indented-code"><code>${md.utils.escapeHtml(tokens[index].content)}</code></pre>\n`
+  },
+  head: [
+    ['meta', { name: 'robots', content: 'noindex, nofollow, noarchive' }],
+  ],
+  plugins: [
+    markdownMathPlugin({ type: 'katex' }),
+    markdownHintPlugin(),
+  ],
+  theme: {
+    name: 'study-notes',
+    clientConfigFile: fileURLToPath(new URL('./client.js', import.meta.url)),
+    templateBuild: fileURLToPath(new URL('./template.html', import.meta.url)),
+    async onPrepared(app) {
+      const sections = sidebar.map(section => ({
+        text: section.text,
+        children: section.children.map(path => ({
+          path,
+          text: app.pages.find(page => page.path === path).title,
+        })),
+      }))
+      await app.writeTemp('study-sidebar.js', `export default ${JSON.stringify(sections)}`)
+    },
+  },
+  bundler: viteBundler(),
 })
