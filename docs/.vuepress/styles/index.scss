@@ -33,6 +33,7 @@ a:hover { text-decoration-thickness: 2px; }
   font-size: 0.875rem;
 }
 .sidebar details { margin-top: 1.5rem; }
+.sidebar-close { display: none; }
 .sidebar summary { cursor: pointer; }
 .sidebar summary h2 { display: inline; font-size: 0.9rem; margin: 0; }
 .sidebar details[open] summary { margin-bottom: 0.5rem; }
@@ -105,10 +106,42 @@ blockquote { margin-inline: 0; padding-left: 1rem; border-left: 2px solid #999; 
 main a:not(.header-anchor) { color: #2563eb; }
 main a:not(.header-anchor):hover { color: #1d4ed8; }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .notes-layout { grid-template-columns: minmax(0, 1fr); }
-  .sidebar { position: static; height: auto; max-height: 40vh; border-right: 0; border-bottom: 1px solid #ddd; padding: 1rem; }
+  .sidebar {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100dvh;
+    border: 0;
+    padding: calc(3.5rem + env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0.25s;
+    overscroll-behavior: contain;
+  }
+  .sidebar.is-open { transform: translateX(0); visibility: visible; }
+  .sidebar-close {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: max(0.5rem, env(safe-area-inset-top));
+    right: max(0.5rem, env(safe-area-inset-right));
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+    font-size: 2rem;
+    cursor: pointer;
+  }
   main { padding: 1.5rem 1rem 3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar { transition: none; }
 }
 @media print {
   .print-heading-block { break-inside: avoid; page-break-inside: avoid; }

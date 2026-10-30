@@ -1,5 +1,5 @@
 # 2024 Midterm Exam
-총 15 문항, 100점 만점.
+총 15 문항, 100점 만점
 2024.10.16.
 
 1. [8점] Define the following terms.

@@ -1,5 +1,5 @@
-# 2024 Computer Security Final Exam
-- 총 16문항, 100점 만점.
+# 2024 Final Exam
+- 총 16문항, 100점 만점
 - 2024.12.11.
 
 ## 1. Define the following terms. [6 points]
