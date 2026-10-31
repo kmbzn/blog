@@ -1,4 +1,12 @@
 @font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'D2Coding';
   src: url('/fonts/D2Coding.ttf') format('truetype');
   font-style: normal;
@@ -11,7 +19,7 @@ html {
   --vp-c-accent: #111;
   background: #fff;
   color: #111;
-  font-family: system-ui, sans-serif;
+  font-family: 'Pretendard', system-ui, sans-serif;
   line-height: 1.7;
 }
 body { margin: 0; background: #fff; }
@@ -82,7 +90,7 @@ main img {
 }
 
 iframe { max-width: 100%; }
-pre, code { font-family: ui-monospace, monospace; font-size: 0.9em; }
+pre, code { font-family: 'D2Coding', monospace; font-size: 0.9em; }
 pre { overflow-x: auto; padding: 1rem; border: 1px solid #ddd; background: #fff; line-height: 1.6; }
 pre:not(.indented-code) { font-size: 9pt; }
 pre code { font-size: inherit; }
@@ -93,13 +101,12 @@ pre code { font-size: inherit; }
   top: 0.35rem;
   right: 0.75rem;
   color: #777;
-  font-family: ui-monospace, monospace;
+  font-family: 'D2Coding', monospace;
   font-size: 0.75rem;
   line-height: 1.4;
   pointer-events: none;
 }
 pre.indented-code {
-  font-family: 'D2Coding', monospace;
   line-height: 1;
   white-space: pre;
   tab-size: 4;
