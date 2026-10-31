@@ -1,4 +1,4 @@
-# Project 3 - Virtual Memory & File system - wiki
+# Project 3 Wiki
 
 ## 1. Design
 

@@ -24,7 +24,7 @@ const sidebar = subjects
     text,
     children: readdirSync(fileURLToPath(new URL(`../${directory}/`, import.meta.url)))
       .filter(name => name.endsWith('.md'))
-      .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
+      .sort((a, b) => a.slice(0, -3).localeCompare(b.slice(0, -3), 'en', { numeric: true }))
       .map(name => `/${directory}/${name.slice(0, -3)}`),
   }))
 

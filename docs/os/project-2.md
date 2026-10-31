@@ -1,4 +1,4 @@
-# Project 02 - Implementing a simple kernel-level thread
+# Project 2
 Operating System
 
 Due date

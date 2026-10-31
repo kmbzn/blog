@@ -1,4 +1,4 @@
-# Project 02 - Test Code
+# Project 2 Test
 Implementing a simple kernel-level thread
 
 Due date
