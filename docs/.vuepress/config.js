@@ -36,6 +36,10 @@ export default defineUserConfig({
   pagePatterns: ['**/*.md', '!.vuepress', '!node_modules'],
   // Keep existing extensionless links working.
   extendsPage(page) {
+    if (page.path === '/') {
+      page.title = 'cs-note'
+      page.data.title = 'cs-note'
+    }
     if (page.path !== '/' && page.path !== '/404.html') {
       const path = page.path.replace(/\.html$/, '').replace(/\/$/, '')
       page.path = path
@@ -87,6 +91,9 @@ export default defineUserConfig({
   },
   head: [
     ['meta', { name: 'robots', content: 'noindex, nofollow, noarchive' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icons/icon-192.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/icons/icon-180.png' }],
+    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
   ],
   plugins: [
     markdownMathPlugin({ type: 'katex' }),
