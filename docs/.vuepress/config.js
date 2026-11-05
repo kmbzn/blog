@@ -31,7 +31,7 @@ const sidebar = subjects
 export default defineUserConfig({
   lang: 'ko-KR',
   title: '',
-  description: '컴퓨터공학 전공과 개발 학습 기록',
+  description: '학습 노트',
   base: '/',
   pagePatterns: ['**/*.md', '!.vuepress', '!node_modules'],
   // Keep existing extensionless links working.
