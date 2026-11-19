@@ -1,2 +1,5 @@
 /*
   X-Robots-Tag: noindex, nofollow, noarchive
+
+/manifest.webmanifest
+  Cache-Control: no-cache
